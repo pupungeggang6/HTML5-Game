@@ -8,3 +8,4 @@ let delta
 
 let scene = 'Title'
 let state = ''
+let menu = false
