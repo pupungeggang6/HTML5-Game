@@ -20,6 +20,10 @@ function loop() {
 
     if (scene === 'Title') {
         loopTitle()
+    } else if (scene === 'Field') {
+        loopField()
+    } else if (scene === 'Game') {
+        loopGame()
     }
 
     gameFrame = requestAnimationFrame(loop)
@@ -33,6 +37,10 @@ function mouseUp(event) {
 
     if (scene === 'Title') {
         mouseUpTitle(x, y, button)
+    } else if (scene == 'Field') {
+        mouseUpField(x, y, button)
+    } else if (scene === 'Game') {
+        mouseUpGame(x, y, button)
     }
 }
 
