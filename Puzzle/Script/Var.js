@@ -1,2 +1,0 @@
-let canvas
-let context
