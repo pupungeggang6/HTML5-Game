@@ -6,7 +6,11 @@ function main() {
     canvas = document.querySelector('#Screen')
     context = canvas.getContext('2d')
 
+    window.addEventListener('mousemove', mouseMove, false)
     window.addEventListener('mouseup', mouseUp, false)
+
+    imageLoad()
+    clearBoard()
     
     gameFramePrevious = Date.now()
     gameFrameCurrent = Date.now() - 16
@@ -25,6 +29,15 @@ function loop() {
     }
 
     gameFrame = requestAnimationFrame(loop)
+}
+
+function mouseMove(event) {
+    let targetRect = canvas.getBoundingClientRect()
+    let x = (event.clientX - targetRect.left) / targetRect.width * 1280
+    let y = (event.clientY - targetRect.top) / targetRect.height * 720
+
+    mouse[0] = x
+    mouse[1] = y
 }
 
 function mouseUp(event) {
