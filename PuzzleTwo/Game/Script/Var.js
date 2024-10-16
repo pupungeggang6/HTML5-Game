@@ -9,12 +9,14 @@ let delta
 let scene = 'Title'
 let state = ''
 let menu = false
+let AITimeout = 0
 
 // 0:Empty, 1:Black, 2:White
 let game = {
     mode : '',
     rule : 'Classic',
     turnMax : 10,
+    AILevel : 1,
     
     turnWho : 0,
     turnNum : 0,

@@ -90,13 +90,13 @@ function winCheckClassic() {
             if (game.board[i][j] === 2 && game.board[i][j + 1] === 2 && game.board[i][j + 2] === 2 && game.board[i][j + 3] === 2 && game.board[i][j + 4] === 2) {
                 state = 'Win'
                 game.winner = 1
-                return
+                return true
             }
 
             if (game.board[i][j] === 1 && game.board[i][j + 1] === 1 && game.board[i][j + 2] === 1 && game.board[i][j + 3] === 1 && game.board[i][j + 4] === 1) {
                 state = 'Win'
                 game.winner = 0
-                return
+                return true
             }
         }
     }
@@ -106,13 +106,13 @@ function winCheckClassic() {
             if (game.board[i][j] === 2 && game.board[i + 1][j] === 2 && game.board[i + 2][j] === 2 && game.board[i + 3][j] === 2 && game.board[i + 4][j] === 2) {
                 state = 'Win'
                 game.winner = 1
-                return
+                return true
             }
 
             if (game.board[i][j] === 1 && game.board[i + 1][j] === 1 && game.board[i + 2][j] === 1 && game.board[i + 3][j] === 1 && game.board[i + 4][j] === 1) {
                 state = 'Win'
                 game.winner = 0
-                return
+                return true
             }
         }
     }
@@ -122,13 +122,13 @@ function winCheckClassic() {
             if (game.board[i][j] === 2 && game.board[i + 1][j + 1] === 2 && game.board[i + 2][j + 2] === 2 && game.board[i + 3][j + 3] === 2 && game.board[i + 4][j + 4] === 2) {
                 state = 'Win'
                 game.winner = 1
-                return
+                return true
             }
 
             if (game.board[i][j] === 1 && game.board[i + 1][j + 1] === 1 && game.board[i + 2][j + 2] === 1 && game.board[i + 3][j + 3] === 1 && game.board[i + 4][j + 4] === 1) {
                 state = 'Win'
                 game.winner = 0
-                return
+                return true
             }
         }
     }
@@ -138,14 +138,26 @@ function winCheckClassic() {
             if (game.board[i][j] === 2 && game.board[i + 1][j - 1] === 2 && game.board[i + 2][j - 2] === 2 && game.board[i + 3][j - 3] === 2 && game.board[i + 4][j - 4] === 2) {
                 state = 'Win'
                 game.winner = 1
-                return
+                return true
             }
 
             if (game.board[i][j] === 1 && game.board[i + 1][j - 1] === 1 && game.board[i + 2][j - 2] === 1 && game.board[i + 3][j - 3] === 1 && game.board[i + 4][j - 4] === 1) {
                 state = 'Win'
                 game.winner = 0
-                return
+                return true
             }
         }
+    }
+    return false
+}
+
+function handleAITimeout() {
+    if (AITimeout < 0) {
+        AIMove(game.AILevel)
+        game.currentMove = game.nextMove
+        game.nextMove = generateMove(1)
+        state = ''
+    } else {
+        AITimeout -= delta * 16 / 1000
     }
 }

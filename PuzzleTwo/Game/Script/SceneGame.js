@@ -1,6 +1,8 @@
 function loopGame() {
     if (state === '') {
         handleBoardMouse()
+    } else if (state === 'AITurn') {
+        handleAITimeout()
     }
     displayGame()
 }
@@ -37,6 +39,20 @@ function mouseUpGame(x, y, button) {
                     game.nextMove = generateMove(1 - game.turnWho)
                     if (game.rule === 'Classic') {
                         winCheckClassic()
+                    }
+                } else {
+                    alert('Stones cannot be overlapped.')
+                }
+            } else if (game.mode === 'Single') {
+                if (moveValidityCheck(game.currentMove, game.cursor[0], game.cursor[1])) {
+                    placeStone(game.currentMove, game.cursor[0], game.cursor[1])
+                    if (game.rule === 'Classic') {
+                        if (winCheckClassic() === false) {
+                            game.currentMove = game.nextMove
+                            game.nextMove = generateMove(0)
+                            state = 'AITurn'
+                            AITimeout = 0.5
+                        }
                     }
                 } else {
                     alert('Stones cannot be overlapped.')

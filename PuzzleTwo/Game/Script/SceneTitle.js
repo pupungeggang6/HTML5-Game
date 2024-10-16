@@ -21,6 +21,11 @@ function mouseUpTitle(x, y, button) {
                     state = ''
                     game.mode = 'Multi'
                     gameInit()
+                } else if (pointInsideRectArray(x, y, UI.title.buttonStartSingle)) {
+                    scene = 'Game'
+                    state = ''
+                    game.mode = 'Single'
+                    gameInit()
                 }
             }
         }
