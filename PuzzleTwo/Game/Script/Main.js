@@ -10,7 +10,6 @@ function main() {
     window.addEventListener('mouseup', mouseUp, false)
 
     imageLoad()
-    clearBoard()
     
     gameFramePrevious = Date.now()
     gameFrameCurrent = Date.now() - 16

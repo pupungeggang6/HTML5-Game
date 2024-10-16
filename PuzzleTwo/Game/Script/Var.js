@@ -12,6 +12,10 @@ let menu = false
 
 // 0:Empty, 1:Black, 2:White
 let game = {
+    mode : '',
+    rule : 'Classic',
+    turnMax : 10,
+    
     turnWho : 0,
     turnNum : 0,
     cursor : [0, 0],
@@ -26,6 +30,10 @@ let game = {
         [0, 0, 1],
         [2, 0, 0]
     ],
+
+    p1Score : 0,
+    p2Score : 0,
+    winner : 0,
 }
 
 let mouse = [0, 0]
