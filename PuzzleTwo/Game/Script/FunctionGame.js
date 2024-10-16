@@ -1,7 +1,7 @@
 function gameInit() {
     clearBoard()
     game.turnWho = 0
-    game.turn = 1
+    game.turnNum = 1
     game.currentMove = generateMove(0)
     game.nextMove = generateMove(1)
 }
