@@ -3,7 +3,7 @@ function loopTitle() {
 }
 
 function displayTitle() {
-    drawSceneInit()
+    drawSceneUIInit()
 
     context.fillStyle = 'White'
     context.fillRect(0, 0, 1280, 720)
@@ -14,7 +14,14 @@ function displayTitle() {
 }
 
 function mouseUpTitle(x, y, button) {
-    
+    if (button === 0) {
+        if (state === '') {
+            if (pointInsideRectArray(x, y, UI.title.buttonStart)) {
+                scene = 'Game'
+                state = ''
+            }
+        }
+    }
 }
 
 function keyDownTitle(key) {
