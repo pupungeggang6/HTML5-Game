@@ -41,9 +41,10 @@ function glInit() {
         in vec2 a_texcoord;
         out vec2 v_texcoord;
         uniform vec2 u_resolution;
+        uniform mat4 u_camera;
 
         void main() {
-            gl_Position = a_position;
+            gl_Position = u_camera * a_position;
             v_texcoord = a_texcoord;
         }
     `
@@ -51,12 +52,12 @@ function glInit() {
     let sourceFragmentShader = `#version 300 es
         precision highp float;
         in vec2 v_texcoord;
-        uniform int mode;
+        uniform int u_mode;
         uniform sampler2D u_texture;
         out vec4 outColor;
 
         void main() {
-            if (mode == 0) {
+            if (u_mode == 0) {
                 outColor = vec4(0, 1, 0, 1);
             } else {
                 outColor = texture(u_texture, v_texcoord);   
@@ -78,8 +79,9 @@ function glInit() {
 
     varGL.location.position = gl.getAttribLocation(varGL.program, 'a_position')
     varGL.location.texcoord = gl.getAttribLocation(varGL.program, 'a_texcoord')
-    varGL.location.mode = gl.getUniformLocation(varGL.program, 'mode')
+    varGL.location.mode = gl.getUniformLocation(varGL.program, 'u_mode')
     varGL.location.texture = gl.getUniformLocation(varGL.program, 'u_texture')
+    varGL.location.camera = gl.getUniformLocation(varGL.program, 'u_camera')
 
     varGL.buffer.vertex = gl.createBuffer(gl.ARRAY_BUFFER)
     varGL.buffer.texture = gl.createBuffer(gl.ARRAY_BUFFER)

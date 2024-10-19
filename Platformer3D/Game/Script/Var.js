@@ -20,9 +20,17 @@ let varGL = {
     },
     location : {
         position : null,
+        camera : null,
+        mode : null,
+        texcoord : null,
+        texture : null,
     },
     buffer : {
         vertex : null,
         texture : null,
     }
+}
+
+let space3D = {
+    camera : [],
 }
