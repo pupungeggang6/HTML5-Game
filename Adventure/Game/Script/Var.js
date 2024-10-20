@@ -9,3 +9,20 @@ let delta
 let scene = 'Title'
 let state = ''
 let menu = false
+
+let varField = {
+    wall : [],
+    unit : [],
+    projectile : [],
+}
+
+let varPlayer = {
+    energy : 8,
+    energyMax : 8,
+    life : 60,
+    lifeMax : 60,
+
+    hand : [],
+    deck : [],
+    item : [],
+}

@@ -11,7 +11,7 @@ const UI = {
 
     game : {
         lower : {
-            
+            card : [],
         },
     },
 }
