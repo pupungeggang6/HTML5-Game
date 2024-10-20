@@ -11,5 +11,14 @@ function displayTitle() {
 }
 
 function mouseUpTitle(x, y, button) {
-
+    if (button === 0) {
+        if (menu === false) {
+            if (state === '') {
+                if (pointInsideRectArray(x, y, UI.title.buttonTest)) {
+                    scene = 'Game'
+                    state = 'Start'
+                }
+            }
+        }
+    }
 }

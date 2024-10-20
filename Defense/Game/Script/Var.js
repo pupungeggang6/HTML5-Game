@@ -9,3 +9,15 @@ let delta
 let scene = 'Title'
 let state = ''
 let menu = false
+
+let varLevel = {
+    
+}
+
+let varField = {
+
+}
+
+let varPlayer = {
+
+}
