@@ -10,6 +10,25 @@ function drawSceneInit() {
     context.fillStyle = 'Black'
 }
 
+function drawOption() {
+    context.fillStyle = 'White'
+    context.fillRect(UI.title.option.rect[0], UI.title.option.rect[1], UI.title.option.rect[2], UI.title.option.rect[3])
+    context.strokeRect(UI.title.option.rect[0], UI.title.option.rect[1], UI.title.option.rect[2], UI.title.option.rect[3])
+    context.fillStyle = 'Black'
+
+    context.strokeRect(UI.title.option.buttonModeClassic[0], UI.title.option.buttonModeClassic[1], UI.title.option.buttonModeClassic[2], UI.title.option.buttonModeClassic[3])
+    context.fillText(`Classic`, UI.title.option.textModeClassic[0], UI.title.option.textModeClassic[1])
+    context.strokeRect(UI.title.option.buttonModeShape[0], UI.title.option.buttonModeShape[1], UI.title.option.buttonModeShape[2], UI.title.option.buttonModeShape[3])
+    context.fillText(`Shape`, UI.title.option.textModeShape[0], UI.title.option.textModeShape[1])
+
+    for (let i = 0; i < 6; i++) {
+        context.strokeRect(UI.title.option.buttonDifficulty[i][0], UI.title.option.buttonDifficulty[i][1], UI.title.option.buttonDifficulty[i][2], UI.title.option.buttonDifficulty[i][3])
+        context.fillText(`${i + 1}`, UI.title.option.textDifficulty[i][0], UI.title.option.textDifficulty[i][1])
+        context.strokeRect(UI.title.option.buttonTurn[i][0], UI.title.option.buttonTurn[i][1], UI.title.option.buttonTurn[i][2], UI.title.option.buttonTurn[i][3])
+        context.fillText(`${optionTurn[i]}`, UI.title.option.textTurn[i][0], UI.title.option.textTurn[i][1])
+    }
+}
+
 function drawBoard() {
     for (let i = 0; i < 14; i++) {
         for (let j = 0; j < 14; j++) {

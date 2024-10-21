@@ -16,7 +16,7 @@ let game = {
     mode : '',
     rule : 'Classic',
     turnMax : 10,
-    AILevel : 1,
+    AILevel : 2,
     
     turnWho : 0,
     turnNum : 0,
@@ -36,6 +36,12 @@ let game = {
     p1Score : 0,
     p2Score : 0,
     winner : 0,
+}
+
+let option = {
+    AILevel : 1,
+    rule : 'Classic',
+    turnMax : 10,
 }
 
 let mouse = [0, 0]

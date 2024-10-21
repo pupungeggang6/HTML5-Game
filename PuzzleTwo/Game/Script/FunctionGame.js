@@ -1,5 +1,8 @@
 function gameInit() {
     clearBoard()
+    game.AILevel = option.AILevel
+    game.rule = option.rule
+    game.turnMax = option.turnMax
     game.turnWho = 0
     game.turnNum = 1
     game.currentMove = generateMove(0)
@@ -84,6 +87,22 @@ function placeStone(pattern, row, col) {
     }
 }
 
+function placeStoneToBoard(pattern, board, row, col) {
+    for (let i = 0; i < pattern.length; i++) {
+        for (let j = 0; j < pattern[i].length; j++) {
+            let targetRow = row + i - 1
+            let targetColumn = col + j - 1
+            if (targetRow >= 0 && targetRow < 15 && targetColumn >= 0 && targetColumn < 15) {
+                if (board[targetRow][targetColumn] === 0) {
+                    board[targetRow][targetColumn] = pattern[i][j]
+                }
+            }
+        }
+    }
+
+    return board
+}
+
 function winCheckClassic() {
     for (let i = 0; i < 15; i++) {
         for (let j = 0; j < 11; j++) {
@@ -154,9 +173,13 @@ function winCheckClassic() {
 function handleAITimeout() {
     if (AITimeout < 0) {
         AIMove(game.AILevel)
-        game.currentMove = game.nextMove
-        game.nextMove = generateMove(1)
-        state = ''
+        if (game.rule === 'Classic') {
+            if (winCheckClassic() === false) {
+                game.currentMove = game.nextMove
+                game.nextMove = generateMove(1)
+                state = ''
+            }
+        }
     } else {
         AITimeout -= delta * 16 / 1000
     }
