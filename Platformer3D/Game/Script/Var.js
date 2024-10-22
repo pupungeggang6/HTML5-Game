@@ -24,6 +24,13 @@ let varGL = {
         mode : null,
         texcoord : null,
         texture : null,
+        color : null,
+
+        translate : null,
+        rotateX : null,
+        rotateY : null,
+        rotateZ : null,
+        scale : null,
     },
     buffer : {
         vertex : null,

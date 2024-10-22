@@ -40,11 +40,16 @@ function glInit() {
         in vec4 a_position;
         in vec2 a_texcoord;
         out vec2 v_texcoord;
-        uniform vec2 u_resolution;
+
         uniform mat4 u_camera;
+        uniform mat4 u_translate;
+        uniform mat4 u_rotateX;
+        uniform mat4 u_rotateY;
+        uniform mat4 u_rotateZ;
+        uniform mat4 u_scale;
 
         void main() {
-            gl_Position = u_camera * a_position;
+            gl_Position = u_camera * u_translate * u_rotateZ * u_rotateY * u_rotateX * u_scale * a_position;
             v_texcoord = a_texcoord;
         }
     `
@@ -54,11 +59,12 @@ function glInit() {
         in vec2 v_texcoord;
         uniform int u_mode;
         uniform sampler2D u_texture;
+        uniform vec4 u_color;
         out vec4 outColor;
 
         void main() {
             if (u_mode == 0) {
-                outColor = vec4(0, 1, 0, 1);
+                outColor = u_color;
             } else {
                 outColor = texture(u_texture, v_texcoord);   
             }
@@ -82,6 +88,13 @@ function glInit() {
     varGL.location.mode = gl.getUniformLocation(varGL.program, 'u_mode')
     varGL.location.texture = gl.getUniformLocation(varGL.program, 'u_texture')
     varGL.location.camera = gl.getUniformLocation(varGL.program, 'u_camera')
+    varGL.location.color = gl.getUniformLocation(varGL.program, 'u_color')
+
+    varGL.location.translate = gl.getUniformLocation(varGL.program, 'u_translate')
+    varGL.location.rotateX = gl.getUniformLocation(varGL.program, 'u_rotateX')
+    varGL.location.rotateY = gl.getUniformLocation(varGL.program, 'u_rotateY')
+    varGL.location.rotateZ = gl.getUniformLocation(varGL.program, 'u_rotateZ')
+    varGL.location.scale = gl.getUniformLocation(varGL.program, 'u_scale')
 
     varGL.buffer.vertex = gl.createBuffer(gl.ARRAY_BUFFER)
     varGL.buffer.texture = gl.createBuffer(gl.ARRAY_BUFFER)
