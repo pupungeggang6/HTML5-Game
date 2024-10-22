@@ -10,7 +10,7 @@ function loopGame() {
 
 function displayGame() {
     drawSceneInit()
-
+    drawField()
     drawHand()
 }
 

@@ -1,5 +1,5 @@
 function drawSceneInit() {
-    context.font = '32px Opensans'
+    context.font = '32px neodgm'
     context.textAlign = 'left'
     context.textBaseline = 'top'
     context.strokeStyle = 'Black'
@@ -11,7 +11,9 @@ function drawSceneInit() {
 }
 
 function drawField() {
-    
+    for (let i = 0; i < 14; i++) {
+        context.strokeRect(UI.game.field.cell[i][0], UI.game.field.cell[i][1], UI.game.field.cell[i][2], UI.game.field.cell[i][3])
+    }
 }
 
 function drawHand() {
@@ -30,7 +32,7 @@ function drawCard(context, card, position) {
     context.strokeRect(position[0] + UI.card.rect[0], position[1] + UI.card.rect[1], UI.card.rect[2], UI.card.rect[3])
     context.fillStyle = 'Black'
 
-    context.font = '32px Opensans'
+    context.font = '32px neodgm'
     for (let i = 0; i < card['Energy'].length; i++) {
         if (card['Energy'][i][0] === 'Any') {
             context.drawImage(img.crystal.any, position[0] + UI.card.crystal[0] + UI.card.crystalInterval[0] * i, position[1] + UI.card.crystal[1])
@@ -40,14 +42,14 @@ function drawCard(context, card, position) {
 
     context.strokeRect(position[0] + UI.card.image[0], position[1] + UI.card.image[1], UI.card.image[2], UI.card.image[3])
 
-    context.font = '16px Opensans'
+    context.font = '16px neodgm'
     context.fillText(`${card['Name']}`, position[0] + UI.card.textName[0], position[1] + UI.card.textName[1])
 
     for (let i = 0; i < dataDescription[card['ID']]['Description'].length; i++) {
         context.fillText(`${dataDescription[card['ID']]['Description'][i]}`, position[0] + UI.card.textDescription[0], position[1] + UI.card.textDescription[1] + UI.card.textDescriptionInterval[1] * i)
     }
 
-    context.font = '32px Opensans'
+    context.font = '32px neodgm'
     context.fillText(`${card['Stat'][0]}`, position[0] + UI.card.textAttack[0], position[1] + UI.card.textAttack[1])
     context.fillText(`${card['Stat'][1]}`, position[0] + UI.card.textLife[0], position[1] + UI.card.textLife[1])
 }
