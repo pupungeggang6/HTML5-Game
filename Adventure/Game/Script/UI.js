@@ -11,7 +11,9 @@ const UI = {
 
     game : {
         lower : {
-            card : [],
+            cardStart : [40, 600],
+            cardInterval : [80, 0],
+            cardSize : [80, 80]
         },
     },
 }

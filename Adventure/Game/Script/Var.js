@@ -11,6 +11,7 @@ let state = ''
 let menu = false
 
 let varField = {
+    positionPlayer : [200, 200],
     wall : [],
     unit : [],
     projectile : [],

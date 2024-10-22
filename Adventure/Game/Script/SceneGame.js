@@ -4,6 +4,9 @@ function loopGame() {
 
 function displayGame() {
     drawSceneInit()
+
+    drawField()
+    drawHand()
 }
 
 function mouseUpGame(x, y, button) {
