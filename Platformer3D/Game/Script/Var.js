@@ -20,17 +20,22 @@ let varGL = {
     },
     location : {
         position : null,
-        camera : null,
         mode : null,
         texcoord : null,
         texture : null,
         color : null,
 
-        translate : null,
-        rotateX : null,
-        rotateY : null,
-        rotateZ : null,
-        scale : null,
+        modelRotateX : null,
+        modelRotateY : null,
+        modelRotateZ : null,
+        modelTranslate : null,
+        modelScale : null,
+
+        cameraRotateX : null,
+        cameraRotateY : null,
+        cameraRotateZ : null,
+        cameraTranslate : null,
+        cameraProjection : null,
     },
     buffer : {
         vertex : null,
@@ -39,5 +44,8 @@ let varGL = {
 }
 
 let space3D = {
-    camera : [],
+    camera : {
+        translate : [0, 0, 0],
+        rotate : [0, 0, 0]
+    },
 }

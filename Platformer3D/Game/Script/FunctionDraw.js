@@ -15,7 +15,12 @@ function drawSceneGLInit() {
     gl.lineWidth(4)
 
     gl.useProgram(varGL.program)
-    gl.uniformMatrix4fv(varGL.location.camera, false, glOrthoMatrix(-1.6, 1.6, -1, 1, -1, 1))
+    gl.uniformMatrix4fv(varGL.location.cameraProjection, false, glOrthoMatrix(-1.6, 1.6, -1, 1, -1, 1))
+    gl.uniformMatrix4fv(varGL.location.cameraRotateX, false, matrixRotate('x', space3D.camera.rotate[0]))
+    gl.uniformMatrix4fv(varGL.location.cameraRotateY, false, matrixRotate('y', space3D.camera.rotate[1]))
+    gl.uniformMatrix4fv(varGL.location.cameraRotateZ, false, matrixRotate('z', space3D.camera.rotate[2]))
+    gl.uniformMatrix4fv(varGL.location.cameraTranslate, false, matrixTranslate(space3D.camera.translate[0], space3D.camera.translate[1], space3D.camera.translate[2]))
+
     gl.bindBuffer(gl.ARRAY_BUFFER, varGL.buffer.vertex)
     gl.enableVertexAttribArray(varGL.location.position)
     gl.vertexAttribPointer(varGL.location.position, 4, gl.FLOAT, false, 0, 0)
@@ -25,11 +30,11 @@ function drawSceneGLInit() {
 }
 
 function drawObject(transform, modeling, texture, texMode, edgeMode) {
-    gl.uniformMatrix4fv(varGL.location.translate, false, matrixTranslate(transform.translate[0], transform.translate[1], transform.translate[2]))
-    gl.uniformMatrix4fv(varGL.location.scale, false, matrixScale(transform.scale[0], transform.scale[1], transform.scale[2]))
-    gl.uniformMatrix4fv(varGL.location.rotateX, false, matrixRotate('x', transform.rotate[0]))
-    gl.uniformMatrix4fv(varGL.location.rotateY, false, matrixRotate('y', transform.rotate[1]))
-    gl.uniformMatrix4fv(varGL.location.rotateZ, false, matrixRotate('z', transform.rotate[2]))
+    gl.uniformMatrix4fv(varGL.location.modelTranslate, false, matrixTranslate(transform.translate[0], transform.translate[1], transform.translate[2]))
+    gl.uniformMatrix4fv(varGL.location.modelScale, false, matrixScale(transform.scale[0], transform.scale[1], transform.scale[2]))
+    gl.uniformMatrix4fv(varGL.location.modelRotateX, false, matrixRotate('x', transform.rotate[0]))
+    gl.uniformMatrix4fv(varGL.location.modelRotateY, false, matrixRotate('y', transform.rotate[1]))
+    gl.uniformMatrix4fv(varGL.location.modelRotateZ, false, matrixRotate('z', transform.rotate[2]))
 
     if (edgeMode === true) {
         gl.uniform1i(varGL.location.mode, 0)

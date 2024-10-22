@@ -41,15 +41,32 @@ function glInit() {
         in vec2 a_texcoord;
         out vec2 v_texcoord;
 
-        uniform mat4 u_camera;
-        uniform mat4 u_translate;
-        uniform mat4 u_rotateX;
-        uniform mat4 u_rotateY;
-        uniform mat4 u_rotateZ;
-        uniform mat4 u_scale;
+        uniform mat4 u_camera_projection;
+        uniform mat4 u_camera_translate;
+        uniform mat4 u_camera_rotateX;
+        uniform mat4 u_camera_rotateY;
+        uniform mat4 u_camera_rotateZ;
+        uniform mat4 u_model_translate;
+        uniform mat4 u_model_rotateX;
+        uniform mat4 u_model_rotateY;
+        uniform mat4 u_model_rotateZ;
+        uniform mat4 u_model_scale;
 
         void main() {
-            gl_Position = u_camera * u_translate * u_rotateZ * u_rotateY * u_rotateX * u_scale * a_position;
+            vec4 final_position = a_position;
+
+            final_position *= u_model_scale;
+            final_position *= u_model_rotateX;
+            final_position *= u_model_rotateY;
+            final_position *= u_model_rotateZ;
+            final_position *= u_model_translate;
+            final_position *= u_camera_rotateX;
+            final_position *= u_camera_rotateY;
+            final_position *= u_camera_rotateZ;
+            final_position *= u_camera_translate;
+            final_position *= u_camera_projection;
+
+            gl_Position = final_position;
             v_texcoord = a_texcoord;
         }
     `
@@ -87,14 +104,20 @@ function glInit() {
     varGL.location.texcoord = gl.getAttribLocation(varGL.program, 'a_texcoord')
     varGL.location.mode = gl.getUniformLocation(varGL.program, 'u_mode')
     varGL.location.texture = gl.getUniformLocation(varGL.program, 'u_texture')
-    varGL.location.camera = gl.getUniformLocation(varGL.program, 'u_camera')
+
     varGL.location.color = gl.getUniformLocation(varGL.program, 'u_color')
 
-    varGL.location.translate = gl.getUniformLocation(varGL.program, 'u_translate')
-    varGL.location.rotateX = gl.getUniformLocation(varGL.program, 'u_rotateX')
-    varGL.location.rotateY = gl.getUniformLocation(varGL.program, 'u_rotateY')
-    varGL.location.rotateZ = gl.getUniformLocation(varGL.program, 'u_rotateZ')
-    varGL.location.scale = gl.getUniformLocation(varGL.program, 'u_scale')
+    varGL.location.cameraProjection = gl.getUniformLocation(varGL.program, 'u_camera_projection')
+    varGL.location.cameraTranslate = gl.getUniformLocation(varGL.program, 'u_camera_translate')
+    varGL.location.cameraRotateX = gl.getUniformLocation(varGL.program, 'u_camera_rotateX')
+    varGL.location.cameraRotateY = gl.getUniformLocation(varGL.program, 'u_camera_rotateY')
+    varGL.location.cameraRotateZ = gl.getUniformLocation(varGL.program, 'u_camera_rotateZ')
+
+    varGL.location.modelTranslate = gl.getUniformLocation(varGL.program, 'u_model_translate')
+    varGL.location.modelRotateX = gl.getUniformLocation(varGL.program, 'u_model_rotateX')
+    varGL.location.modelRotateY = gl.getUniformLocation(varGL.program, 'u_model_rotateY')
+    varGL.location.modelRotateZ = gl.getUniformLocation(varGL.program, 'u_model_rotateZ')
+    varGL.location.modelScale = gl.getUniformLocation(varGL.program, 'u_model_scale')
 
     varGL.buffer.vertex = gl.createBuffer(gl.ARRAY_BUFFER)
     varGL.buffer.texture = gl.createBuffer(gl.ARRAY_BUFFER)
