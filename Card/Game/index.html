@@ -3,7 +3,7 @@
     <head>
         <title>Card</title>
         <style>
-            #Screen {
+            .Screen {
                 border: 2px solid black;
                 position: absolute;
                 left: 0;
@@ -16,7 +16,8 @@
         </style>
     </head>
     <body>
-        <canvas id="Screen" width="1280" height="720"></canvas>
+        <canvas id="Screen" class="Screen" width="1280" height="720"></canvas>
+        <canvas id="ScreenDebug" class="Screen" width="1280" height="720"></canvas>
         <script src="Script/Asset.js"></script>
         <script src="Script/UI.js"></script>
         <script src="Script/Data.js"></script>
@@ -24,6 +25,7 @@
         <script src="Script/Const.js"></script>
         <script src="Script/Var.js"></script>
 
+        <script src="Script/FunctionDebug.js"></script>
         <script src="Script/FunctionPhysics.js"></script>
         <script src="Script/FunctionGame.js"></script>
         <script src="Script/FunctionSave.js"></script>

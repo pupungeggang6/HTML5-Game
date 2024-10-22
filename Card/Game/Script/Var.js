@@ -1,5 +1,7 @@
 let canvas
 let context
+let canvasDebug
+let contextDebug
 
 let gameFrame
 let gameFrameCurrent
@@ -10,6 +12,8 @@ let scene = 'Title'
 let state = ''
 let stateClick = ''
 let menu = false
+
+let mouse = [0, 0]
 
 let varSave = {
 
@@ -29,5 +33,7 @@ let varGame = {
     ],
 
     statementEnv : {},
-    statementStack : []
+    statementStack : [],
+
+    pointerHand : -1,
 }

@@ -12,11 +12,16 @@ const UI = {
 
         },
 
+        field : {
+
+        },
+
         lower : {
             weapon : [],
-            handCard : [],
-            handCardPop : [],
-            handCardInterval : [],
+            handCard : [80, 480],
+            handCardPop : [80, 400],
+            handCardInterval : [80, 0],
+            handCardZone : 240,
             crystal : [],
         },
     },
@@ -25,6 +30,12 @@ const UI = {
         rect : [0, 0, 240, 320],
         crystal : [0, 0],
         crystalInterval : [40, 0],
-        crystalText : [12, 8],
+        crystalText : [8, 4],
+        image : [60, 40, 120, 120],
+        textName : [4, 162],
+        textDescription : [4, 182],
+        textDescriptionInterval : [0, 20],
+        textAttack : [4, 284],
+        textLife : [204, 284]
     }
 }

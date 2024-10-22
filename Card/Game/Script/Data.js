@@ -1,8 +1,5 @@
 const dataCard = {
-    1 : {'ID' : 1, 'Energy' : ['Any'], 'Effect' : [['Select', 'x'], ['Summon', 'x', [1, 2, []]]]},
-    2 : {'ID' : 2, 'Energy' : ['Any', 'Any'], 'Effect' : [['Select', 'x'], ['Summon', 'x', [2, 3, []]]]},
-    3 : {'ID' : 3, 'Energy' : ['Any'], 'Effect' : [['DamageLeader', 3]]},
-    4 : {'ID' : 4, 'Energy' : ['Any', 'Any'], 'Effect' : [['Select', 'x'], ['Summon', 'x', [1, 2, []]]]}
+    1 : {'ID' : 1, 'Name' : 'Clay 1', 'Element' : 'Normal', 'Rarity' : 'Basic', 'Type' : 'Unit', 'Stat' : [1, 2], 'Energy' : [['Any', 1]], 'Effect' : [['Select', 'x'], ['Summon', 'x', ['Stat1', 'Stat2', []]]]},
 }
 
 const dataEnemy = {
