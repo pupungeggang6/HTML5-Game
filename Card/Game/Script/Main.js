@@ -23,6 +23,8 @@ function loop() {
     } else if (scene === 'Game') {
         loopGame()
     }
+
+    gameFrame = requestAnimationFrame(loop)
 }
 
 function mouseUp(event) {
