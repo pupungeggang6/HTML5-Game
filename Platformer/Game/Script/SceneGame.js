@@ -1,9 +1,12 @@
 function loopGame() {
+    handleAnimation()
     displayGame()
 }
 
 function displayGame() {
     drawSceneInit()
+
+    drawAnimatedSprite(img.sprite.player, animation.player['Idle'], animationStatus.player, [200, 200], [64, 64])
 
     if (menu === true) {
         drawMenu()
