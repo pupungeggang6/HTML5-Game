@@ -5,6 +5,8 @@ function loopGame() {
 function displayGame() {
     drawSceneInit()
 
+    drawThing(player)
+
     if (menu === true) {
         drawMenu()
     }

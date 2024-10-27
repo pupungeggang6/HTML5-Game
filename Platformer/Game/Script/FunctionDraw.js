@@ -24,12 +24,14 @@ function drawMenu() {
 }
 
 function drawThing(thing) {
-    if (thing.animation.time > thing.animationData[thing.animation.state]['Time']) {
+    let state = thing.animation.state
+
+    if (thing.animation.time > thing.animationData[state]['Time']) {
         thing.animation.time = 0
-        thing.animation.frame = (thing.animation.frame + 1) % thing.animationData[thing.animation.state]['Frame'].length
+        thing.animation.frame = (thing.animation.frame + 1) % thing.animationData[state]['Frame'].length
     } else {
         thing.animation.time += delta / 1000
     }
     
-    context.drawImage(thing.image, thing.animationData)
+    context.drawImage(thing.image, thing.animationData[state]['Frame'][thing.animation.frame][1] * thing.animationData[state]['Size'][0], thing.animationData[state]['Frame'][thing.animation.frame][0] * thing.animationData[state]['Size'][1], thing.animationData[state]['Size'][0], thing.animationData[state]['Size'][1], thing.position.x, thing.position.y, thing.animationData[state]['Size'][0], thing.animationData[state]['Size'][1])
 }

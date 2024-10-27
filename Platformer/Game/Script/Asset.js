@@ -5,5 +5,5 @@ let img = {
 }
 
 function imageLoad() {
-    img.sprite.player = 'Image/SpritePlayer.png'
+    img.sprite.player.src = 'Image/SpritePlayer.png'
 }
