@@ -1,4 +1,4 @@
-function loopGame() {
+function loopGame() {   
     displayGame()
 }
 
