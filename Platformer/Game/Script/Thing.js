@@ -18,6 +18,7 @@ class Player extends Thing {
         }
         this.animationData = {
             'Idle': {'Frame': [[0, 0], [0, 1], [0, 2], [0, 3]], 'Time': 0.25, 'Size': [40, 40]},
+            'Left': {'Frame': [[2, 0], [2, 1], [2, 2], [2, 3]], 'Time': 0.16, 'Size': [40, 40]},
         }
     }
 }

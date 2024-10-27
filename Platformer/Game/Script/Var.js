@@ -10,9 +10,13 @@ let scene = 'Title'
 let state = ''
 let menu = false
 
+let keyboard = {
+    left: false, right: false, up: false, down: false
+}
+
 let player
 
 let varSelect = {
-    title : 0,
-    menu : 0,
+    title: 0,
+    menu: 0,
 }
