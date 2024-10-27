@@ -25,4 +25,12 @@ function moveEnemy() {
     for (enemy in enemyList) {
         enemyList[enemy].followTarget(player)
     }
+
+    for (enemy in enemyList) {
+        for (enemyOther in enemyList) {
+            if (enemy != enemyOther) {
+                enemyList[enemy].collideAdjust(enemyList[enemyOther])
+            }
+        }
+    }
 }

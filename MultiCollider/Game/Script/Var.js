@@ -34,6 +34,7 @@ class Player extends Character {
     constructor() {
         super()
         this.type = 'Player'
+        this.speed = 320
     }
 }
 
@@ -59,6 +60,18 @@ class Enemy extends Character {
             let diffNormalized = vectorNormalize(diff)
             this.position.x += diffNormalized.x * this.speed * delta / 1000
             this.position.y += diffNormalized.y * this.speed * delta / 1000
+        }
+    }
+
+    collideAdjust(target) {
+        let distance = distanceTwoPoint(this.position.x, this.position.y, target.position.x, target.position.y)
+        let sizeSum = this.size + target.size
+        if (distance < sizeSum) {
+            let directionVector = vectorNormalize({
+                x: this.position.x - target.position.x, y: this.position.y - target.position.y
+            })
+            this.position.x = target.position.x + directionVector.x * sizeSum
+            this.position.y = target.position.y + directionVector.y * sizeSum
         }
     }
 }

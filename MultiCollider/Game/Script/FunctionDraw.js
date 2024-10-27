@@ -15,7 +15,7 @@ function drawThing(thing) {
     if (thing.type === 'Player') {
         context.fillStyle = 'Blue'
     } else {
-        context.fillStyle = 'Red'   
+        context.fillStyle = 'Orange'   
     }
     context.strokeStyle = 'Black'
     context.arc(thing.position.x, thing.position.y, thing.size, 0, Math.PI * 2)
