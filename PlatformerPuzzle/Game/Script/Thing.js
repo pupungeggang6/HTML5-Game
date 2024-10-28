@@ -9,6 +9,9 @@ class Thing {
 class Player extends Thing {
     constructor() {
         super()
+        this.size = {
+            x: 40, y: 40
+        }
     }
 }
 
