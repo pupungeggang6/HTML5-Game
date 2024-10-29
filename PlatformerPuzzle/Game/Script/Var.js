@@ -10,6 +10,10 @@ let scene = 'Title'
 let state = ''
 let menu = false
 
+let varSelect = {
+    title : 0
+}
+
 let player
 let level
 let enemy

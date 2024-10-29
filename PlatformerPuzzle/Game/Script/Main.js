@@ -24,6 +24,8 @@ function loop() {
     } else if (scene === 'Game') {
         loopGame()
     }
+    
+    gameFrame = requestAnimationFrame(loop)
 }
 
 function keyDown(event) {
