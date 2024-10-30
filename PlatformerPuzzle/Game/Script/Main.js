@@ -9,6 +9,9 @@ function main() {
     window.addEventListener('keydown', keyDown, false)
     window.addEventListener('keyup', keyUp, false)
 
+    imageLoad()
+    gameInit()
+
     gameFrameCurrent = Date.now()
     gameFramePrevious = Date.now() - 16
     gameFrame = requestAnimationFrame(loop)
@@ -40,6 +43,32 @@ function keyDown(event) {
 
 function keyUp(event) {
     let key = event.key
+
+    if (key === 'w') {
+        keyboard.up = false
+    }
+    if (key === 'a') {
+        keyboard.left = false
+    }
+    if (key === 's') {
+        keyboard.down = false
+    }
+    if (key === 'd') {
+        keyboard.right = false
+    }
+
+    if (key === 'ArrowUp') {
+        keyboard.controlUp = false
+    }
+    if (key === 'ArrowLeft') {
+        keyboard.controlLeft = false
+    }
+    if (key === 'ArrowDown') {
+        keyboard.controlDown = false
+    }
+    if (key === 'ArrowRight') {
+        keyboard.controlRight = false
+    }
 
     if (scene === 'Title') {
         keyUpTitle(key)

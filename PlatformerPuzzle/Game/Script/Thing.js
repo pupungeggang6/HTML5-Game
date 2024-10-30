@@ -12,6 +12,8 @@ class Player extends Thing {
         this.size = {
             x: 40, y: 40
         }
+        this.position.x = 200
+        this.position.y = 200
     }
 }
 
