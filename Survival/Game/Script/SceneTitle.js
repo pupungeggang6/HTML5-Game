@@ -23,12 +23,14 @@ function keyUpTitle(key) {
 }
 
 function mouseUpTitle(x, y, button) {
-    if (menu === false) {
-        if (state === '') {
-            if (pointInsideRectArray(x, y, UI.title.buttonTest)) {
-                scene = 'Game'
-                state = 'Start'
-                gameStart()
+    if (button === 0) {
+        if (menu === false) {
+            if (state === '') {
+                if (pointInsideRectArray(x, y, UI.title.buttonTest)) {
+                    scene = 'Game'
+                    state = 'Start'
+                    gameStart()
+                }
             }
         }
     }

@@ -18,10 +18,12 @@ function displayGame() {
 }
 
 function mouseUpGame(x, y, button) {
-    if (menu === false) {
-        if (state === 'Start') {
-            if (pointInsideRectArray(x, y, UI.game.start.buttonStart)) {
-                state = ''
+    if (button === 0) {
+        if (menu === false) {
+            if (state === 'Start') {
+                if (pointInsideRectArray(x, y, UI.game.start.buttonStart)) {
+                    state = ''
+                }
             }
         }
     }
