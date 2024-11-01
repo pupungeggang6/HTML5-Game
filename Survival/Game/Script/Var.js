@@ -9,3 +9,6 @@ let delta
 let scene = 'Title'
 let state = ''
 let menu = false
+
+let player
+let monster = []

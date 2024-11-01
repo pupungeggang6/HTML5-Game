@@ -10,6 +10,8 @@ function main() {
     window.addEventListener('keyup', keyUp, false)
     window.addEventListener('mouseup', mouseUp, false)
 
+    gameInit()
+
     gameFrameCurrent = Date.now()
     gameFramePrevious = Date.now() - 16
     gameFrame = requestAnimationFrame(loop)
@@ -33,6 +35,10 @@ function loop() {
 
 function keyDown(event) {
     let key = event.key
+
+    if (key === 'ArrowUp') {
+
+    }
 
     if (scene === 'Title') {
         keyDownTitle(key)
