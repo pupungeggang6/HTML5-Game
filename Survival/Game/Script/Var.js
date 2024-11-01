@@ -10,5 +10,12 @@ let scene = 'Title'
 let state = ''
 let menu = false
 
+let keyboard = {
+    up: false,
+    left: false,
+    down: false,
+    right: false,
+}
+
 let player
-let monster = []
+let enemyList = []

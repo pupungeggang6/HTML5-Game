@@ -1,9 +1,16 @@
 function loopGame() {
+    if (menu === false) {
+        if (state === '') {
+            gameTick()
+        }
+    }
     displayGame()
 }
 
 function displayGame() {
     drawSceneInit()
+    drawField()
+    drawLower()
 
     if (state === 'Start') {
         drawGameStart()

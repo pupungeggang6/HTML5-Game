@@ -19,7 +19,10 @@ const UI = {
         },
 
         lower: {
-
+            handStart: [40, 680],
+            handText: [4, 4],
+            handSize: [80, 80],
+            handInterval: [80, 0],
         }
     }
 }

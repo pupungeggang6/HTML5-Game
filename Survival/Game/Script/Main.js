@@ -37,7 +37,13 @@ function keyDown(event) {
     let key = event.key
 
     if (key === 'ArrowUp') {
-
+        keyboard.up = true
+    } else if (key === 'ArrowLeft') {
+        keyboard.left = true
+    } else if (key === 'ArrowDown') {
+        keyboard.down = true
+    } else if (key === 'ArrowRight') {
+        keyboard.right = true
     }
 
     if (scene === 'Title') {
@@ -51,6 +57,16 @@ function keyDown(event) {
 
 function keyUp(event) {
     let key = event.key
+
+    if (key === 'ArrowUp') {
+        keyboard.up = false
+    } else if (key === 'ArrowLeft') {
+        keyboard.left = false
+    } else if (key === 'ArrowDown') {
+        keyboard.down = false
+    } else if (key === 'ArrowRight') {
+        keyboard.right = false
+    }
 
     if (scene === 'Title') {
         keyUpTitle(key)

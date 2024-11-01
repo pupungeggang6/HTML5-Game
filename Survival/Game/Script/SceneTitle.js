@@ -28,6 +28,7 @@ function mouseUpTitle(x, y, button) {
             if (pointInsideRectArray(x, y, UI.title.buttonTest)) {
                 scene = 'Game'
                 state = 'Start'
+                gameStart()
             }
         }
     }
