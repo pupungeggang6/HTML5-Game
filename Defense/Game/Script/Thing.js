@@ -1,6 +1,25 @@
+class Vector {
+    constructor(x, y) {
+        this.x = x
+        this.y = y
+    }
+}
+
+class Collider {
+
+}
+
+class ColliderCircle extends Collider {
+
+}
+
+class ColliderRect extends Collider {
+
+}
+
 class Player {
     life = 20
-    energy = 8
+    energy = 4
     energyMax = 8
     energyGen = 1
     generatorLevel = 1
@@ -43,6 +62,7 @@ class Player {
     generatorLevelUp() {
         if (this.generatorLevel < 5) {
             if (this.energy > this.generatorEnergy[this.generatorLevel]) {
+                this.energy -= this.generatorEnergy[this.generatorLevel]
                 this.generatorLevel += 1
                 this.energyMax += 2
                 this.energyGen += 0.2
@@ -56,13 +76,6 @@ class Player {
                 this.hand.push(this.deck.shift())
             }
         }
-    }
-}
-
-class Vector {
-    constructor(x, y) {
-        this.x = x
-        this.y = y
     }
 }
 
@@ -83,6 +96,15 @@ class UnitPlayer extends Character {
         super()
         this.life = properties['Life']
         this.lifeMax = properties['Life']
+    }
+}
+
+class UnitEnemy extends Enemy {
+    constructor(properties) {
+        super()
+        this.life = properties['Life']
+        this.lifeMax = properties['Life']
+        this.speed = properties['Speed']
     }
 }
 
@@ -122,7 +144,7 @@ class Level {
     }
 }
 
-class Game {
+class GameHandler {
     level = 0
     time = 0
     constructor() {
@@ -131,16 +153,40 @@ class Game {
     }
 }
 
+class Cell {
+    constructor(rect, empty) {
+        this.rect = rect
+        this.empty = empty
+    }
+}
+
 class Field {
+    rectStart = new Vector(40, 120)
+    row = 3
+    col = 10
+    cell = []
     spawnList = []
     unitList = []
     emenyList = []
     projectileList = []
 
     constructor() {
-        this.spawnList = [[760, 40], [760, 120], [760, 200]]
+        this.spawnList = [new Vector(800, 160), new Vector(800, 240), new Vector(800, 280)]
         this.unitList = []
         this.enemyList = []
         this.projectileList = []
+
+        this.cell = []
+        for (let i = 0; i < this.row; i++) {
+            let temp = []
+            for (let j = 0; j < this.col; j++) {
+                if (j != this.col - 1) {
+                    temp.push(new Cell([this.rectStart.x, this.rectStart.y, 80, 80], true))
+                } else {
+                    temp.push(new Cell([this.rectStart.x, this.rectStart.y, 80, 80], false))
+                }
+            }
+            this.cell.push(temp)
+        }
     }
 }

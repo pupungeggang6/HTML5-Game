@@ -36,19 +36,30 @@ function drawGameStart() {
 }
 
 function drawField() {
-
+    
 }
 
 function drawLower() {
+    context.fillText(`Lv.${player.generatorLevel}`, UI.game.lower.textGeneratorLevel[0], UI.game.lower.textGeneratorLevel[1])
+    context.fillText(`${player.life}`, UI.game.lower.textLife[0], UI.game.lower.textLife[1])
+    context.fillText(`${player.energy.toFixed(1)}/${player.energyMax}`, UI.game.lower.textEnergy[0], UI.game.lower.textEnergy[1])
+ 
     context.strokeRect(UI.game.lower.buttonGenerator[0], UI.game.lower.buttonGenerator[1], UI.game.lower.buttonGenerator[2], UI.game.lower.buttonGenerator[3])
+    context.font = '24px neodgm'
+    context.fillText(player.generatorEnergy[player.generatorLevel], UI.game.lower.textGeneratorUpgrade[0], UI.game.lower.textGeneratorUpgrade[1])
+    context.font = '32px neodgm'
 
     for (let i = 0; i < 8; i++) {
         context.strokeRect(UI.game.lower.handStart[0] + UI.game.lower.handInterval[0] * i, UI.game.lower.handStart[1] + UI.game.lower.handInterval[1] * i, UI.game.lower.handSize[0], UI.game.lower.handSize[1])
+        if (i < player.hand.length) {
+            drawCard(player.hand[i], {x: UI.game.lower.handStart[0] + UI.game.lower.handInterval[0] * i, y: UI.game.lower.handStart[1] + UI.game.lower.handInterval[1] * i})
+        }
     }
 }
 
-function drawHand() {
-
+function drawCard(card, position) {
+    context.font = '24px neodgm'
+    context.fillText(card.energy, position.x + UI.card.textEnergy[0], position.y + UI.card.textEnergy[1])
 }
 
 function drawMenu() {

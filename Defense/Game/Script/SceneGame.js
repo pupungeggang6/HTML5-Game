@@ -30,7 +30,17 @@ function mouseUpGame(x, y, button) {
             if (pointInsideRectArray(x, y, UI.game.buttonMenu)) {
                 menu = true
             }
-            if (state === 'Start') {
+            if (state === '') {
+                if (stateSelected === '') {
+                    if (pointInsideRectArray(x, y, UI.game.lower.buttonGenerator)) {
+                        player.generatorLevelUp()
+                    }
+                } else if (stateSelected === 'Card') {
+
+                } else if (stateSelected === 'Bounce') {
+                    
+                }
+            } else if (state === 'Start') {
                 if (pointInsideRectArray(x, y, UI.game.start.buttonStart)) {
                     state = ''
                 }

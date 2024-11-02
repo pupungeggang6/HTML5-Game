@@ -30,7 +30,11 @@ const UI = {
         },
         
         lower: {
+            textGeneratorLevel: [44, 644],
+            textLife: [164, 644],
+            textEnergy: [244, 644],
             buttonGenerator: [40, 680, 80, 80],
+            textGeneratorUpgrade: [42, 682],
             handStart: [120, 680],
             handInterval: [80, 0],
             handSize: [80, 80],
@@ -44,5 +48,10 @@ const UI = {
         textResume: [324, 344],
         buttonExit: [320, 400, 640, 80],
         textExit: [324, 424]
+    },
+
+    card: {
+        rect: [0, 0, 80, 80],
+        textEnergy: [2, 2]
     }
 }
