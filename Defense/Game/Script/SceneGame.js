@@ -1,4 +1,9 @@
 function loopGame() {
+    if (menu === false) {
+        if (state === '') {
+            gameTick()
+        }
+    }
     displayGame()
 }
 

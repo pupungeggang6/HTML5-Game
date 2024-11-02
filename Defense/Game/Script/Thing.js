@@ -5,9 +5,57 @@ class Player {
     energyGen = 1
     generatorLevel = 1
     generatorEnergy = [0, 4, 5, 6, 8, 999]
+    drawRecharge = 4
+    
+    hand = []
+    deck = [new Card(1), new Card(1), new Card(1), new Card(1)]
 
     constructor() {
 
+    }
+
+    playerTick() {
+        this.autoDraw()
+        this.autoEnergyGen()
+    }
+
+    autoEnergyGen() {
+        if (this.energy + this.energyGen * delta / 1000 > this.energyMax) {
+            this.energy = this.energyMax
+        } else {
+            this.energy += this.energyGen * delta / 1000
+        }
+    }
+
+    autoDraw() {
+        if (this.drawRecharge < 0) {
+            if (this.deck.length > 0) {
+                if (this.hand.length < 8) {
+                    this.hand.push(this.deck.shift())
+                    this.drawRecharge = 4
+                }
+            }
+        } else {
+            this.drawRecharge -= delta / 1000
+        }
+    }
+
+    generatorLevelUp() {
+        if (this.generatorLevel < 5) {
+            if (this.energy > this.generatorEnergy[this.generatorLevel]) {
+                this.generatorLevel += 1
+                this.energyMax += 2
+                this.energyGen += 0.2
+            } 
+        }
+    }
+
+    drawCard() {
+        if (this.deck.length > 0) {
+            if (this.hand.length < 8) {
+                this.hand.push(this.deck.shift())
+            }
+        }
     }
 }
 
@@ -48,9 +96,11 @@ class Card extends Cardlike {
     energy = 0
     effect = []
     
-    constructor() {
-        super(properties)
-        
+    constructor(ID) {
+        super()
+
+        this.energy = data.card[ID]['Energy']
+        this.effect = JSON.parse(JSON.stringify(data.card[ID]['Effect']))
     }
 }
 

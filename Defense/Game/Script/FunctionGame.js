@@ -11,5 +11,5 @@ function gameStart() {
 }
 
 function gameTick() {
-    
+    player.playerTick()
 }

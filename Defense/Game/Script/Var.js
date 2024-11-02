@@ -10,6 +10,8 @@ let scene = 'Title'
 let state = ''
 let menu = false
 
+let deckPage = 0
+
 let player
 let field
 let level

@@ -14,18 +14,19 @@ const UI = {
 
         start: {
             rect: [80, 80, 1120, 640],
-            textTitle: [84, 84],
-            descriptionArea: [80, 160, 640, 80],
-            cardStart: [80, 240],
+            textTitle: [104, 104],
+            descriptionArea: [100, 160, 640, 80],
+            cardStart: [100, 240],
             cardInterval: [80, 80],
             cardSize: [80, 80],
-            buttonPrev: [80, 640, 160, 80],
-            buttonNext: [560, 640, 160, 80],
-            deckArea: [480, 160],
+            buttonPrev: [100, 620, 160, 80],
+            buttonNext: [580, 620, 160, 80],
+            textPage: [424, 644],
+            deckArea: [740, 240, 440, 320],
             deckSize: [],
             deckInterval: [],
-            buttonStart: [1040, 640, 160, 80],
-            textStart: [1044, 664],
+            buttonStart: [1020, 620, 160, 80],
+            textStart: [1024, 644],
         },
         
         lower: {
