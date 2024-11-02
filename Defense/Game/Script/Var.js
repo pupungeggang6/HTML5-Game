@@ -12,3 +12,4 @@ let menu = false
 
 let player
 let field
+let level

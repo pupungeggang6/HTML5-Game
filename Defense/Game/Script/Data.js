@@ -1,7 +1,7 @@
 const data = {
     card: {
-        1: {'Energy': 2, 'Life': 30, 'Attack': 10, 'AttackType': 1, 'Effect': []},
-        2: {'Energy': 3, 'Life': 30, 'Attack': 10, 'AttackType': 1, 'Effect': []}
+        1: {'Energy': 2, 'Life': 30, 'Attack': 10, 'AttackType': 1, 'Effect': [['Summon', ['This']]]},
+        2: {'Energy': 3, 'Life': 30, 'Attack': 10, 'AttackType': 1, 'Effect': [['Summon', ['This']]]}
     },
     enemy: {
         1: {'Life': 30, 'Attack': 10, 'Speed': 100, 'AttackType': 1}

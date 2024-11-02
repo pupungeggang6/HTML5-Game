@@ -17,6 +17,17 @@ function drawGameStart() {
     context.fillStyle = 'Black'
 
     context.fillText(`Build your deck.`, UI.game.start.textTitle[0], UI.game.start.textTitle[1])
+    context.strokeRect(UI.game.start.descriptionArea[0], UI.game.start.descriptionArea[1], UI.game.start.descriptionArea[2], UI.game.start.descriptionArea[3])
+
+    for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 8; j++) {
+            context.strokeRect(UI.game.start.cardStart[0] + UI.game.start.cardInterval[0] * j, UI.game.start.cardStart[1] + UI.game.start.cardInterval[1] * i, UI.game.start.cardSize[0], UI.game.start.cardSize[1])
+        }
+    }
+
+    context.strokeRect(UI.game.start.buttonPrev[0], UI.game.start.buttonPrev[1], UI.game.start.buttonPrev[2], UI.game.start.buttonPrev[3])
+    context.strokeRect(UI.game.start.bubutttonPrev[0], UI.game.start.buttonPrev[1], UI.game.start.buttonPrev[2], UI.game.start.buttonPrev[3])
+
     context.strokeRect(UI.game.start.buttonStart[0], UI.game.start.buttonStart[1], UI.game.start.buttonStart[2], UI.game.start.buttonStart[3])
     context.fillText(`Start`, UI.game.start.textStart[0], UI.game.start.textStart[1])
 }

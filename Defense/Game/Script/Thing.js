@@ -39,11 +39,19 @@ class UnitPlayer extends Character {
 }
 
 class Cardlike {
+    constructor() {
 
+    }
 }
 
 class Card extends Cardlike {
-
+    energy = 0
+    effect = []
+    
+    constructor() {
+        super(properties)
+        
+    }
 }
 
 class Wave {
@@ -60,7 +68,7 @@ class Level {
     constructor(l) {
         for (let i = 0; i < data.level[l].length; i++) {
             this.wave.push(new Wave(data.level[l][i]['Time'], data.level[l][i]['Enemy']))
-        } 
+        }
     }
 }
 
