@@ -10,8 +10,5 @@ let scene = 'Title'
 let state = ''
 let menu = false
 
-let player
 let field
-let level
-let unitPlayerList
-let unitEnemyList
+let player

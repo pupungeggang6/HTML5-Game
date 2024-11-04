@@ -6,9 +6,8 @@ function main() {
     canvas = document.getElementById('Screen')
     context = canvas.getContext('2d')
 
-    canvas.addEventListener('mouseup', mouseUp, false)
-
-    gameInit()
+    window.addEventListener('keydown', keyDown, false)
+    window.addEventListener('keyup', keyUp, false)
 
     gameFrameCurrent = Date.now()
     gameFramePrevious = Date.now() - 16
@@ -22,8 +21,6 @@ function loop() {
 
     if (scene === 'Title') {
         loopTitle()
-    } else if (scene === 'CharacterSelect') {
-        loopCharacterSelect()
     } else if (scene === 'Game') {
         loopGame()
     }
@@ -31,18 +28,23 @@ function loop() {
     gameLoop = requestAnimationFrame(loop)
 }
 
-function mouseUp(event) {
-    let targetRect = canvas.getBoundingClientRect()
-    let x = (event.clientX - targetRect.left) / targetRect.width * canvas.width
-    let y = (event.clientY - targetRect.top) / targetRect.height * canvas.height
-    let button = event.button
+function keyDown(event) {
+    let key = event.key
 
     if (scene === 'Title') {
-        mouseUpTitle(x, y, button)
-    } else if (scene === 'CharacterSelect') {
-        mouseUpCharacterSelect(x, y, button)
+        keyDownTitle(key)
     } else if (scene === 'Game') {
-        mouseUpGame(x, y, button)
+        keyDownGame(key)
+    }
+}
+
+function keyUp(event) {
+    let key = event.key
+
+    if (scene === 'Title') {
+        keyUpTitle(key)
+    } else if (scene === 'Game') {
+        keyUpGame(key)
     }
 }
 
@@ -53,5 +55,5 @@ function errorHandle(err, url, line, col, obj) {
 }
 
 function rightClick() {
-
+    return false
 }
