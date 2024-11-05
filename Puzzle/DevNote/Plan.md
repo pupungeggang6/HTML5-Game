@@ -1,0 +1,3 @@
+# Project Plan
+
+## Battle Mechanism
