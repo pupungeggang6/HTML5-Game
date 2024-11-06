@@ -1,6 +1,7 @@
 class Vector {
     constructor(x, y) {
-
+        this.x = x
+        this.y = y
     }
 }
 
@@ -31,8 +32,11 @@ class Level {
     time = 0
     wave = []
 
-    constructor(wave) {
-
+    constructor(level) {
+        this.wave = []
+        for (let w of level['Wave']) {
+            console.log(w)
+        }
     }
 }
 
