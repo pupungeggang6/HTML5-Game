@@ -1,7 +1,7 @@
 function gameInit() {
     player = new Player()
     field = new Field()
-    level = new Level()
+    level = new Level(data.level[1])
     unitEnemyList = []
     unitPlayerList = []
 }
