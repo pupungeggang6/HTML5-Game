@@ -5,6 +5,8 @@ function loopGame() {
 function displayGame() {
     drawSceneInit()
 
+    drawLower()
+
     if (state === 'Ready') {
         drawGameReady()
     }
