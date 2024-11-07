@@ -8,6 +8,7 @@ function main() {
 
     canvas.addEventListener('mouseup', mouseUp, false)
 
+    imageLoad()
     gameInit()
 
     gameFrameCurrent = Date.now()

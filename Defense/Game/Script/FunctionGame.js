@@ -14,6 +14,16 @@ function gameStart() {
     
 }
 
+function gameTick() {
+    level.handleLevel(field)
+    field.enemyReachCheck(player)
+    player.generateEnergy()
+
+    for (let e of field.unitEnemy) {
+        e.move()
+    }
+}
+
 function debug() {
 
 }

@@ -12,7 +12,8 @@ const UI = {
     game: {
         start: {
             rect: [160, 80, 960, 640],
-            textTitle: [324, 84],
+            textTitle: [164, 84],
+            buttonSelect: [[240, 160, 160, 240], [560, 160, 160, 240], [880, 160, 160, 240]],
             buttonStart: [960, 640, 160, 80],
             textStart: [964, 664],
         },
@@ -26,6 +27,10 @@ const UI = {
             lifeText: [84, 644],
             energyIcon: [120, 640],
             energyText: [164, 644],
+        },
+
+        field: {
+            cellSize: [80, 80]
         }
     },
 }
