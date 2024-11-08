@@ -12,3 +12,7 @@ let menu = false
 
 let field
 let player
+
+let cursor = {
+    title: 0,
+}
