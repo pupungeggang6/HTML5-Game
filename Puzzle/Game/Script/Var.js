@@ -11,6 +11,10 @@ let state = ''
 let stateSelected = ''
 let menu = false
 
+let selected = {
+    character: -1,
+}
+
 let player
 let enemy
 let board

@@ -7,7 +7,7 @@ class Vector {
 
 class Battle {
     turn = 0
-    enemyName = '1231233232'
+    enemyName = 'Enemy 1'
     selected = {
         card: -1,
     }

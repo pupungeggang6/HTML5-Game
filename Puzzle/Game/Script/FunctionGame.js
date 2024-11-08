@@ -3,3 +3,11 @@ function gameInit() {
     battle = new Battle()
     board = new Board()
 }
+
+function adventureStart() {
+
+}
+
+function battleStart() {
+    board = new Board()
+}

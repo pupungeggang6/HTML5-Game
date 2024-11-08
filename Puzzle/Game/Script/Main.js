@@ -26,8 +26,10 @@ function mouseUp(event) {
         mouseUpTitle(x, y, button)
     } else if (scene === 'Ready') {
         mouseUpReady(x, y, button)
+    } else if (scene === 'Map') {
+        mouseUpMap(x, y, button)
     } else if (scene === 'Game') {
-        mouseUpGame(x, y, button)
+        mouseUpBattle(x, y, button)
     }
 
     gameLoop = requestAnimationFrame(loop)
@@ -41,8 +43,10 @@ function loop() {
         loopTitle()
     } else if (scene === 'Ready') {
         loopReady()
+    } else if (scene === 'Map') {
+        loopMap()
     } else if (scene === 'Game') {
-        loopGame()
+        loopBattle()
     }
 
     gameLoop = requestAnimationFrame(loop)

@@ -5,9 +5,28 @@ const UI = {
         textStart: [84, 184]
     },
 
+    ready: {
+        textTitle: [4, 4],
+        buttonMenu : [680, 0, 40, 40],
+        buttonCharacter: [
+            [40, 160, 160, 160], [280, 160, 160, 160], [520, 160, 160, 160],
+            [40, 400, 160, 160], [280, 400, 160, 160], [520, 400, 160, 160],
+        ],
+        buttonStart: [280, 1120, 160, 80],
+        descriptionRect: [40, 640, 640, 400],
+        textStart: [284, 1144],
+    },
+    
+    map: {
+        textTitle: [4, 4],
+        buttonMenu : [680, 0, 40, 40],
+    },
+
     battle: {
         textTitle: [4, 4],
         buttonMenu : [680, 0, 40, 40],
+        boardStart: [40, 80],
+        boardCellSize: [80, 80],
 
         lower: {
             attackIcon: [40, 720],

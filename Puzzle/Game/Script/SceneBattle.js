@@ -1,8 +1,8 @@
-function loopGame() {
-    displayGame()
+function loopBattle() {
+    displayBattle()
 }
 
-function displayGame() {
+function displayBattle() {
     drawSceneInit()
     drawBattleTitle()
     drawBattleBoard()
@@ -13,7 +13,7 @@ function displayGame() {
     }
 }
 
-function mouseUpGame(x, y, button) {
+function mouseUpBattle(x, y, button) {
     if (button === 0) {
         if (menu === false) {
             if (pointInsideRectArray(x, y, UI.battle.buttonMenu)) {
