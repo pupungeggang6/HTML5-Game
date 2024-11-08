@@ -18,11 +18,26 @@ class Level {
 }
 
 class Board {
-    crystalPool = []
+    cellPool = []
     tile = []
 
     constructor() {
-        
+        this.cellPool = [['Crystal', 'Earth'], ['Crystal', 'Water'], ['Crystal', 'Dark']]
+
+        for (let i = 0; i < 7; i++) {
+            let temp = []
+            for (let j = 0; j < 8; j++) {
+                let index = Math.floor(Math.random() * this.cellPool.length)
+                if (this.cellPool[index][0] === 'Crystal') {
+                    temp.push(new Crystal(this.cellPool[index][1]))
+                } else if (this.cellPool[index][0] === 'Obstacle') {
+                    temp.push(new Obstacle())
+                } else if (this.cellPool[index][0] === 'Enemy') {
+                    temp.push(new Enemy())
+                }
+            }
+            this.tile.push(temp)
+        }
     }
 }
 
@@ -33,20 +48,45 @@ class CellElement {
 }
 
 class Obstacle extends CellElement {
+    type = 'Obstacle'
 
+    constructor() {
+        super()
+    }
 }
 
 class Crystal extends CellElement {
+    type = 'Crystal'
     element = ''
 
     constructor(element) {
+        super()
+        this.type = 'Crystal'
         this.element = element
+    }
+}
+
+class EmptyCell extends CellElement {
+    type = 'Empty'
+
+    constructor() {
+        super()
     }
 }
 
 class Enemy extends CellElement {
     life = 60
     attack = 20
+}
+
+class Card {
+    energy = 0
+    effect = []
+
+    constructor() {
+        this.energy = 2
+        this.effect = []
+    }
 }
 
 class Player {
