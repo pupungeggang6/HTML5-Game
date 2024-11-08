@@ -1,3 +1,6 @@
-const dataField = {
-
+const data = {
+    field: {
+        thing: [],
+        tile: [],
+    }
 }

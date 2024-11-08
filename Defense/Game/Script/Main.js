@@ -25,6 +25,8 @@ function loop() {
         loopTitle()
     } else if (scene === 'CharacterSelect') {
         loopCharacterSelect()
+    } else if (scene === 'Map') {
+        loopMap()
     } else if (scene === 'Game') {
         loopGame()
     }
@@ -42,6 +44,8 @@ function mouseUp(event) {
         mouseUpTitle(x, y, button)
     } else if (scene === 'CharacterSelect') {
         mouseUpCharacterSelect(x, y, button)
+    } else if (scene === 'Map') {
+        mouseUpMap(x, y, button)
     } else if (scene === 'Game') {
         mouseUpGame(x, y, button)
     }

@@ -9,3 +9,13 @@ function drawSceneInit() {
     context.fillRect(0, 0, 1280, 800)
     context.fillStyle = 'Black'
 }
+
+function drawField() {
+    for (let t of field.thing) {
+        context.strokeRect(t.rect[0], t.rect[1], t.rect[2], t.rect[3])
+    }
+}
+
+function drawFieldUI() {
+
+}

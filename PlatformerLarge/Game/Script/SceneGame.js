@@ -4,6 +4,8 @@ function loopGame() {
 
 function displayGame() {
     drawSceneInit()
+
+    drawField()
 }
 
 function keyDownGame(key) {
