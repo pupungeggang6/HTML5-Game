@@ -25,9 +25,9 @@ function loop() {
 }
 
 function mouseMove(event) {
-    let targetRect = event.getBoundingClientRect()
+    let targetRect = canvas.getBoundingClientRect()
     let x = (event.clientX - targetRect.left) / targetRect.width * canvas.width
-    let y = (event.clientY - targetRect.top) / targetRect.width * canvas.height
+    let y = (event.clientY - targetRect.top) / targetRect.height * canvas.height
     
     mouse.x = x
     mouse.y = y

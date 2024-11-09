@@ -15,9 +15,18 @@ function drawText() {
 }
 
 function drawBoard() {
-    for (let i = 0; i < 10; i++) {
-        for (let j = 0; j < 10; j++) {
-            
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board[i].length; j++) {
+            context.strokeRect(UI.start[0] + UI.cellSize[0] * j, UI.start[1] + UI.cellSize[1] * i, UI.cellSize[0], UI.cellSize[1])
+
+            if (board[i][j] === 1) {
+                context.fillRect(UI.start[0] + UI.cellSize[0] * j, UI.start[1] + UI.cellSize[1] * i, UI.cellSize[0], UI.cellSize[1])
+            }
         }
     }
+
+    context.fillStyle = 'Blue'
+    context.fillRect(UI.start[0] + UI.cellSize[0] * start[1], UI.start[1] + UI.cellSize[1] * start[0], UI.cellSize[0], UI.cellSize[1])
+    context.fillStyle = 'Green'
+    context.fillRect(UI.start[0] + UI.cellSize[0] * goal[1], UI.start[1] + UI.cellSize[1] * goal[0], UI.cellSize[0], UI.cellSize[1])
 }
