@@ -1,0 +1,15 @@
+let canvas
+let context
+
+let gameLoop
+let gameFrameCurrent
+let gameFramePrevious
+let delta
+
+let scene = 'Title'
+let state = ''
+let menu = false
+
+let mouse = {
+    x: 0, y: 0
+}
