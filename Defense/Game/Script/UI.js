@@ -10,6 +10,8 @@ const UI = {
     },
 
     game: {
+        textTitle: [24, 24],
+
         start: {
             rect: [160, 80, 960, 640],
             textTitle: [164, 84],
@@ -31,6 +33,19 @@ const UI = {
 
         field: {
             cellSize: [80, 80]
+        },
+
+        gameOver: {
+            rect: [160, 80, 960, 640],
+            text: [488, 248],
+            buttonOK: [560, 560, 160, 80],
+            textOK: [568, 584],
         }
     },
+
+    card: {
+        rect: [0, 0, 80, 80],
+        textEnergy: [2, 2],
+        image: [0, 0],
+    }
 }

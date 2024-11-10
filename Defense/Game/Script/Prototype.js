@@ -14,14 +14,21 @@ class Player {
     generatorLevel = 1
     hand = []
     deck = []
+    drawRecharge = 4
+    drawRechargeMax = 4
 
-    constructor() {
+    constructor(properties) {
         this.life = 20
         this.energy = 3
         this.energyMax = 6
         this.energyGen = 1
         this.generatorUpgradeEnergy = 4
         this.generatorLevel = 1
+        
+        this.deck = []
+        for (let i = 0; i < properties['Deck'].length; i++) {
+            this.deck.push(new Card(data.card[properties['Deck'][i]]))
+        }
     }
 
     upgradeGenerator() {
@@ -43,13 +50,31 @@ class Player {
             this.energy += this.energyGen * delta / 1000
         }
     }
+
+    drawCardHandle() {
+        if (this.drawRecharge <= 0) {
+            this.drawRecharge = this.drawRechargeMax
+            this.drawCard()
+        } else {
+            this.drawRecharge -= delta / 1000
+        }
+    }
+
+    drawCard() {
+        if (this.deck.length > 0) {
+            if (this.hand.length < 8) {
+                this.hand.push(this.deck.shift())
+            }
+        }
+    }
 }
 
 class Field {
-    start = new Vector(80, 200)
+    name = 'Plain'
+    start = new Vector(280, 280)
     row = 3
     col = 10
-    tile = []
+    cell = []
     spawn = []
     endPoint = []
     unitPlayer = []
@@ -65,7 +90,7 @@ class Field {
                     temp.push(1)
                 }
             }
-            this.tile.push(temp)
+            this.cell.push(temp)
         }
 
         for (let i = 0; i < 3; i++) {
@@ -75,8 +100,8 @@ class Field {
     }
 
     summonPlayerUnit(unit, row, col) {
-        if (this.tile[row][col] === 0) {
-            this.tile[row][col] = 1
+        if (this.cell[row][col] === 0) {
+            this.cell[row][col] = 1
         }
     }
 
@@ -93,6 +118,10 @@ class Field {
             if (VectorOP.size(diff) <= 10) {
                 this.unitEnemy.splice(i, 1)
                 player.life -= 1
+
+                if (player.life < 1) {
+                    state = 'GameOver'
+                }
             }
         }
     }
@@ -166,7 +195,6 @@ class UnitEnemy extends Unit {
     move() {
         let diff = new Vector(this.destination.x - this.position.x, this.destination.y - this.position.y)
         let direction = VectorOP.normalize(diff)
-        let distance = VectorOP.size(diff)
 
         this.position.x += direction.x * this.speed * delta / 1000
         this.position.y += direction.y * this.speed * delta / 1000
@@ -176,16 +204,22 @@ class UnitEnemy extends Unit {
 class Card {
     type = 'Unit'
     name = 'Name'
+    ID = 0
     element = ''
-
     attack = 0
-    attackType = 0
     energy = 0
     life = 0
+    weapon = 0
     effect = []
 
     constructor(property) {
+        this.ID = property['ID']
         this.type = property['Type']
+        this.element = property['Element']
         this.energy = property['Energy']
+        this.life = property['Life']
+        this.energy = property['Energy']
+        this.weapon = property['Weapon']
+        this.effect = property['Effect']
     }
 }

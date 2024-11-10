@@ -11,11 +11,16 @@ function loopGame() {
 function displayGame() {
     drawSceneInit()
 
+    drawGameTitle()
     drawGameField()
-    drawLower()
+    drawGameLower()
 
     if (state === 'Ready') {
         drawGameReady()
+    }
+
+    if (state === 'GameOver') {
+        drawGameOver()
     }
 }
 
@@ -24,6 +29,11 @@ function mouseUpGame(x, y, button) {
         if (menu === false) {
             if (state === 'Ready') {
                 if (pointInsideRectArray(x, y, UI.game.start.buttonStart)) {
+                    state = ''
+                }
+            } else if (state === 'GameOver') {
+                if (pointInsideRectArray(x, y, UI.game.gameOver.buttokOK)) {
+                    scene = 'Title'
                     state = ''
                 }
             }
