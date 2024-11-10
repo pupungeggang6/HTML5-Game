@@ -17,21 +17,21 @@
 
 ## Game Screen
 
-:heart: Game init.
+- :heart: Game init.
 
-:heart: Game ready page.
+- :heart: Game ready page.
 
-:heart: Player handle.
-  :heart: Energy gen.
-  :heart: Generator upgrade.
-  :heart: Draw handle.
+- :heart: Player handle.
+  - :heart: Energy gen.
+  - :heart: Generator upgrade.
+  - :heart: Draw handle.
 
-:heart: Field handle.
-  :yellow_heart: Enemy move.
-  :heart: Character attack.
-  :green_heart: Game over check.
+- :heart: Field handle.
+  - :yellow_heart: Enemy move.
+  - :heart: Character attack.
+  - :green_heart: Game over check.
 
-:heart: Game end handle.
-  :green_heart:  Game over handle.
-  :heart: Mid-level handle.
-  :heart: Level clear handle.
+- :heart: Game end handle.
+  - :green_heart:  Game over handle.
+  - :heart: Mid-level handle.
+  - :heart: Level clear handle.
