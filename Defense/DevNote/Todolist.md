@@ -2,36 +2,36 @@
 
 ## Title Screen
 
-- [ ] Title screen layout.
-- [ ] Title screen action.
+:heart: Title screen layout.
+:heart: Title screen action.
 
 ## Character Select
 
-- [ ] Character selection.
-- [ ] Generating character.
+:heart: Character selection.
+:heart: Generating character.
 
 ## Map Select
 
-- [ ] Map Select.
-- [ ] Move tile.
+:heart: Map Select.
+:heart: Move tile.
 
 ## Game Screen
 
-- [ ] Game init.
+:heart: Game init.
 
-- [ ] Game ready page.
+:heart: Game ready page.
 
-- [ ] Player handle.
-  - [ ] Energy gen.
-  - [ ] Generator upgrade.
-  - [ ] Draw handle.
+:heart: Player handle.
+  :heart: Energy gen.
+  :heart: Generator upgrade.
+  :heart: Draw handle.
 
-- [ ] Field handle.
-  - [X] [ ] Enemy move.
-  - [ ] Character attack.
-  - [X] Game over check
+:heart: Field handle.
+  :yellow_heart: Enemy move.
+  :heart: Character attack.
+  :green_heart: Game over check.
 
-- [ ] Game end handle.
-  - [X] Game over handle.
-  - [ ] Mid-level handle.
-  - [ ] Level clear handle.
+:heart: Game end handle.
+  :green_heart:  Game over handle.
+  :heart: Mid-level handle.
+  :heart: Level clear handle.
