@@ -5,7 +5,7 @@ function gameInit() {
 }
 
 function adventureStart() {
-
+    field = new Field()
 }
 
 function battleStart() {

@@ -5,6 +5,37 @@ class Vector {
     }
 }
 
+class Field {
+    cell = []
+    pool = ['Battle', 'Shop', 'Mystery']
+
+    constructor() {
+        this.cell = []
+
+        for (let i = 0; i < 6; i++) {
+            let temp = []
+            if (i % 3 === 0) {
+                temp.push('Battle')
+                temp.push('Battle')
+                temp.push('Battle')
+            } else if (i % 3 === 1) {
+                for (let j = 0; j < 3; j++) {
+                    let index = Math.floor(Math.random() * 3)
+                    temp.push(this.pool[index])
+                }
+            } else {
+                temp.push('Battle')
+                temp.push('Shop')
+                temp.push('Mystery')
+            }
+
+            this.cell.push(temp)
+        }
+
+        this.cell.push(['None', 'Boss', 'None'])
+    }
+}
+
 class Battle {
     turn = 0
     enemyName = 'Enemy 1'

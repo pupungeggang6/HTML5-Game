@@ -6,6 +6,12 @@ function displayMap() {
     drawSceneInit()
     context.fillText(`Select`, UI.map.textTitle[0], UI.map.textTitle[1])
 
+    for (let i = 0; i < field.cell.length; i++) {
+        for (let j = 0; j < field.cell[0].length; j++) {
+            context.strokeRect(UI.map.fieldStart[0] + UI.map.fieldCellInterval[0] * j, UI.map.fieldStart[1] + UI.map.fieldCellInterval[1] * i, UI.map.fieldCellSize[0], UI.map.fieldCellSize[1])
+        }
+    }
+
     if (menu === true) {
         drawMenu()
     }

@@ -29,6 +29,7 @@ function mouseUpReady(x, y, button) {
                 if (pointInsideRectArray(x, y, UI.ready.buttonStart)) {
                     scene = 'Map'
                     state = ''
+                    adventureStart()
                 }
             }
         }

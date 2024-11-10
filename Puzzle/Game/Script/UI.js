@@ -19,7 +19,10 @@ const UI = {
     
     map: {
         textTitle: [4, 4],
-        buttonMenu : [680, 0, 40, 40],
+        buttonMenu: [680, 0, 40, 40],
+        fieldStart: [200, 160],
+        fieldCellSize: [80, 80],
+        fieldCellInterval: [120, 120]
     },
 
     battle: {

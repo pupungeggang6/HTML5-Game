@@ -28,6 +28,7 @@ function drawBattleBoard() {
 
 function drawBattleLower() {
     context.fillStyle = 'Black'
+    context.drawImage(img.icon.attack, UI.battle.lower.attackIcon[0], UI.battle.lower.attackIcon[1])
     context.fillText(`${player.attack}`, UI.battle.lower.attackText[0], UI.battle.lower.attackText[1])
 
     context.drawImage(img.icon.energy, UI.battle.lower.energyIcon[0], UI.battle.lower.energyIcon[1])

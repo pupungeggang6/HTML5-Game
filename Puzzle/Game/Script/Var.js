@@ -15,6 +15,8 @@ let selected = {
     character: -1,
 }
 
+let field
+
 let player
 let enemy
 let board

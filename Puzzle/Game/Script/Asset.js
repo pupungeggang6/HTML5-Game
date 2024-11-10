@@ -1,7 +1,8 @@
 let img = {
     icon: {
         life: new Image(),
-        energy: new Image()
+        energy: new Image(),
+        attack: new Image(),
     },
 
     crystal: {
@@ -12,6 +13,7 @@ let img = {
 function imageLoad() {
     img.icon.life.src = 'Image/Icon/Life.png'
     img.icon.energy.src = 'Image/Icon/Energy.png'
+    img.icon.attack.src = 'Image/Icon/Attack.png'
 
     for (const key in img.crystal) {
         img.crystal[key].src = `Image/Crystal/${key}.png`
