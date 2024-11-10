@@ -2,18 +2,18 @@
 
 ## Title Screen
 
-:heart: Title screen layout.
-:heart: Title screen action.
+- :heart: Title screen layout.
+- :heart: Title screen action.
 
 ## Character Select
 
-:heart: Character selection.
-:heart: Generating character.
+- :heart: Character selection.
+- :heart: Generating character.
 
 ## Map Select
 
-:heart: Map Select.
-:heart: Move tile.
+- :heart: Map Select.
+- :heart: Move tile.
 
 ## Game Screen
 
