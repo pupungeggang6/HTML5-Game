@@ -29,11 +29,10 @@ function mouseUpBattle(x, y, button) {
 
             if (state === '') {
                 if (inputEnabled === true) {
-                    if (pointInsideRect(x, y, board.start.x, board.start.y, board.size.x, board.size.y)) {
-                        board.removeThing(30)
-                        board.removeThing(30)
-                        board.removeThing(30)
-                        blockInput(1)
+                    if (stateClick === '') {
+                        
+                    } else if (stateClick === 'Board') {
+
                     }
                 }
             }

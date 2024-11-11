@@ -60,7 +60,9 @@ function drawBattleLower() {
     }
 
     for (let i = 0; i < 5; i++) {
-        drawCard([], new Vector(UI.battle.lower.cardStart[0] + UI.battle.lower.cardInterval[0] * i, UI.battle.lower.cardStart[1] + UI.battle.lower.cardInterval[1] * i))
+        if (i < player.hand.length) {
+            drawCard(player.hand[i], new Vector(UI.battle.lower.cardStart[0] + UI.battle.lower.cardInterval[0] * i, UI.battle.lower.cardStart[1] + UI.battle.lower.cardInterval[1] * i))
+        }
     }
 
     context.strokeRect(UI.battle.lower.cardBack[0], UI.battle.lower.cardBack[1], UI.battle.lower.cardBack[2], UI.battle.lower.cardBack[3])

@@ -1,14 +1,15 @@
 function gameInit() {
-    player = new Player()
-    battle = new Battle()
-    board = new Board()
+
 }
 
 function adventureStart() {
+    player = new Player()
     field = new Field()
 }
 
 function battleStart() {
+    player.buildDeck()
+    battle = new Battle()
     board = new Board()
 }
 

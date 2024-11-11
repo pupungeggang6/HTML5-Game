@@ -8,7 +8,7 @@ let delta
 
 let scene = 'Title'
 let state = ''
-let stateSelected = ''
+let stateClick = ''
 let menu = false
 
 let selected = {

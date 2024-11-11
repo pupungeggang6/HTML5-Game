@@ -211,12 +211,14 @@ class Enemy extends CellElement {
 }
 
 class Card {
+    ID = 0
     energy = 0
     effect = []
 
-    constructor() {
-        this.energy = 2
-        this.effect = []
+    constructor(properties) {
+        this.ID = properties['ID']
+        this.energy = properties['Energy']
+        this.effect = properties['Effect']
     }
 }
 
@@ -229,6 +231,8 @@ class Player {
 
     hand = []
     deck = []
+    discarded = []
+    deckOriginal = [1, 1, 1, 1, 1, 1]
     equipment = []
     item = []
     
@@ -238,5 +242,32 @@ class Player {
         this.energy = 4
         this.energyMax = 4
         this.attack = 5
+    }
+
+    buildDeck() {
+        this.deck = []
+        for (let i = 0; i < this.deckOriginal.length; i++) {
+            this.deck.push(new Card(data.card[this.deckOriginal[i]]))
+        }
+    }
+
+    deckShuffle() {
+
+    }
+    
+    drawCard() {
+        if (this.deck.length > 0) {
+            if (this.hand.length < 5) {
+                this.hand.push(this.deck.shift())
+            }
+        } else {
+            this.deck = this.discarded
+            this.discarded = []
+            if (this.deck.length > 0) {
+                if (this.hand.length < 5) {
+                    this.hand.push(this.deck.shift())
+                }
+            }
+        }
     }
 }
