@@ -8,9 +8,12 @@ function adventureStart() {
 }
 
 function battleStart() {
-    player.buildDeck()
     battle = new Battle()
     board = new Board()
+    player.buildDeck()
+    player.drawCard()
+    player.drawCard()
+    player.drawCard()
 }
 
 function gameTick() {
