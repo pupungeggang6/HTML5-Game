@@ -8,6 +8,7 @@ let delta
 
 let scene = 'Title'
 let state = ''
+let stateClick = ''
 let menu = false
 
 let player

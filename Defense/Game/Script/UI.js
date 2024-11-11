@@ -1,12 +1,22 @@
 const UI = {
     title: {
-        textTitle: [4, 4],
+        textTitle: [24, 24],
         buttonStart: [160, 160, 960, 80],
         textStart: [164, 184],
     },
 
     characterSelect: {
+        buttonBack: [1220, 20, 40, 40],
+        textTitle: [24, 24],
+        buttonCharacter: [
+            [160, 160, 160, 160], [360, 160, 160, 160], [560, 160, 160, 160], [160, 360, 160, 160], [360, 360, 160, 160], [560, 360, 160, 160]
+        ],
+        buttonStart: [1040, 640, 160, 80],
+        textStart: [1048, 664],
+    },
 
+    map: {
+        buttonMenu: [1220, 20, 40, 40],
     },
 
     game: {
@@ -22,13 +32,15 @@ const UI = {
 
         lower: {
             buttonGenerator: [40, 680, 80, 80],
+            textGenerator: [42, 682],
             handStart: [120, 680, 80, 80],
             handSize: [80, 80],
             handInterval: [80, 0],
-            lifeIcon: [40, 640],
-            lifeText: [84, 644],
-            energyIcon: [120, 640],
-            energyText: [164, 644],
+            levelText: [44, 644],
+            lifeIcon: [120, 640],
+            lifeText: [164, 644],
+            energyIcon: [200, 640],
+            energyText: [244, 644],
         },
 
         field: {

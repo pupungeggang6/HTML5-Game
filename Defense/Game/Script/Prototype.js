@@ -6,7 +6,7 @@ class Vector {
 }
 
 class Player {
-    life = 20
+    life = 999
     energy = 3
     energyMax = 6
     energyGen = 1
@@ -18,7 +18,7 @@ class Player {
     drawRechargeMax = 4
 
     constructor(properties) {
-        this.life = 20
+        this.life = 999
         this.energy = 3
         this.energyMax = 6
         this.energyGen = 1

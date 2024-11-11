@@ -31,13 +31,16 @@ function drawGameTitle() {
 }
 
 function drawGameLower() {
+    context.fillText(`Lv.${player.generatorLevel}`, UI.game.lower.levelText[0], UI.game.lower.levelText[1])
     context.drawImage(img.icon.life, UI.game.lower.lifeIcon[0], UI.game.lower.lifeIcon[1])
     context.fillText(`${player.life}`, UI.game.lower.lifeText[0], UI.game.lower.lifeText[1])
     context.drawImage(img.icon.energy, UI.game.lower.energyIcon[0], UI.game.lower.energyIcon[1])
     context.fillText(`${player.energy.toFixed(1)}/${player.energyMax}`, UI.game.lower.energyText[0], UI.game.lower.energyText[1])
 
+    context.font = '24px neodgm'
     context.strokeRect(UI.game.lower.buttonGenerator[0], UI.game.lower.buttonGenerator[1], UI.game.lower.buttonGenerator[2], UI.game.lower.buttonGenerator[3])
-    
+    context.fillText(`${player.generatorUpgradeEnergy}`, UI.game.lower.textGenerator[0], UI.game.lower.textGenerator[1])
+
     for (let i = 0; i < 8; i++) {
         if (i < player.hand.length) {
             drawCard(player.hand[i], [UI.game.lower.handStart[0] + UI.game.lower.handInterval[0] * i, UI.game.lower.handStart[1] + UI.game.lower.handInterval[1] * i])
