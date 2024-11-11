@@ -11,3 +11,7 @@ function randomGenerate() {
         board.push(temp)
     }
 }
+
+function findConnectedRect(row, col) {
+
+}

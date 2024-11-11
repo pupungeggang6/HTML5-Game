@@ -16,12 +16,10 @@ function drawBattleTitle() {
 }
 
 function drawBattleBoard() {
-    context.strokeRect(40, 80, 640, 560)
-    for (let i = 0; i < board.tile.length; i++) {
-        for (let j = 0; j < board.tile[i].length; j++) {
-            if (board.tile[i][j].type === 'Crystal') {
-                context.drawImage(img.crystal[board.tile[i][j].element], 40 + 80 * j, 80 + 80 * i)
-            }
+    context.strokeRect(board.start.x, board.start.y, board.size.x, board.size.y)
+    for (let i = 0; i < board.thing.length; i++) {
+        if (board.thing[i].type === 'Crystal') {
+            context.drawImage(img.crystal[board.thing[i].element], board.thing[i].position.x, board.thing[i].position.y)
         }
     }
 }

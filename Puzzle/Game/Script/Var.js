@@ -15,6 +15,8 @@ let selected = {
     character: -1,
 }
 
+let inputEnabled = true
+let inputStop = 0
 let field
 
 let player

@@ -11,3 +11,20 @@ function adventureStart() {
 function battleStart() {
     board = new Board()
 }
+
+function gameTick() {
+    board.moveThing()
+}
+
+function blockInput(time) {
+    inputEnabled = false
+    inputStop = time
+}
+
+function handleInputEnable() {
+    if (inputStop <= 0) {
+        inputEnabled = true
+    } else {
+        inputStop -= delta / 1000
+    }
+}

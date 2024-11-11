@@ -1,4 +1,11 @@
 function loopBattle() {
+    if (menu === false) {
+        if (state === '') {
+            gameTick()
+            handleInputEnable()
+        }
+    }
+
     displayBattle()
 }
 
@@ -18,6 +25,17 @@ function mouseUpBattle(x, y, button) {
         if (menu === false) {
             if (pointInsideRectArray(x, y, UI.battle.buttonMenu)) {
                 menu = true
+            }
+
+            if (state === '') {
+                if (inputEnabled === true) {
+                    if (pointInsideRect(x, y, board.start.x, board.start.y, board.size.x, board.size.y)) {
+                        board.removeThing(30)
+                        board.removeThing(30)
+                        board.removeThing(30)
+                        blockInput(1)
+                    }
+                }
             }
         } else if (menu === true) {
             if (pointInsideRectArray(x, y, UI.menu.buttonResume)) {

@@ -49,12 +49,17 @@ class Level {
 }
 
 class Board {
+    start = new Vector(40, 80)
+    size = new Vector(640, 560)
     cellPool = []
-    tile = []
+    crystalPool = []
+    cell = []
+    thing = []
     connectedRect = []
 
     constructor() {
         this.cellPool = [['Crystal', 'Earth'], ['Crystal', 'Water'], ['Crystal', 'Dark']]
+        this.crystalPool = ['Earth', 'Water', 'Dark']
 
         for (let i = 0; i < 7; i++) {
             let temp = []
@@ -62,23 +67,109 @@ class Board {
                 let index = Math.floor(Math.random() * this.cellPool.length)
                 if (this.cellPool[index][0] === 'Crystal') {
                     temp.push(new Crystal(this.cellPool[index][1]))
+                    this.thing.push(new ThingCrystal({'Element': this.cellPool[index][1]}, new Vector(this.start.x + j * 80, this.start.y + i * 80), i, j))
                 } else if (this.cellPool[index][0] === 'Obstacle') {
                     temp.push(new Obstacle())
                 } else if (this.cellPool[index][0] === 'Enemy') {
                     temp.push(new Enemy())
                 }
             }
-            this.tile.push(temp)
+            this.cell.push(temp)
         }
     }
 
     findConnectedRect(row, col) {
-        if (this.tile.type != 'Crystal') {
+        if (this.cell.type != 'Crystal') {
             return []
         } else {
             
         }
     }
+
+    moveThing() {
+        for (let t of this.thing) {
+            t.move()
+        }
+    }
+
+    removeThing(index) {
+        let removed = this.thing.splice(index, 1)[0]
+        let rrow = removed.row
+        let rcol = removed.col
+        for (let i = 0; i < this.thing.length; i++) {
+            if (this.thing[i].row < rrow && this.thing[i].col === rcol) {
+                this.thing[i].moveMode = true
+                this.thing[i].destination.y += 80
+                this.thing[i].row += 1
+            }
+        }
+
+        for (let i = rrow - 1; i >= 0; i--) {
+            this.cell[i + 1][rcol] = this.cell[i][rcol]
+        }
+
+        let indexCrystal = Math.floor(Math.random() * this.cellPool.length)
+        this.cell[0][rcol] = new Crystal(this.crystalPool[indexCrystal])
+        let tempThing = new ThingCrystal({'Element': this.crystalPool[indexCrystal]}, new Vector(this.start.x + rcol * 80, this.start.y - 80), 0, rcol)
+        tempThing.destination.y = this.start.y
+        tempThing.moveMode = true
+        this.thing.push(tempThing)
+    }
+}
+
+class Thing {
+    speed = 400
+    position = new Vector(0, 0)
+    destination = new Vector(0, 0)
+    row = 0
+    col = 0
+    moveMode = false
+
+    constructor() {
+
+    }
+
+    move() {
+        if (this.moveMode === true) {
+            let diff = VectorOP.sub(this.destination, this.position)
+            let diffN = VectorOP.normalize(diff)
+            let diffS = VectorOP.size(diff)
+
+            if (diffS > 10) {
+                this.position.x += diffN.x * this.speed * delta / 1000
+                this.position.y += diffN.y * this.speed * delta / 1000
+            } else {
+                this.position.x = this.destination.x
+                this.position.y = this.destination.y
+                this.moveMode = false
+            }
+        }
+    }
+}
+
+class ThingCrystal extends Thing {
+    type = ''
+    element = ''
+
+    constructor(properties, position, row, col) {
+        super()
+        this.type = 'Crystal'
+        this.element = properties['Element']
+        this.position.x = position.x
+        this.position.y = position.y
+        this.destination.x = position.x
+        this.destination.y = position.y
+        this.row = row
+        this.col = col
+    }
+}
+
+class ThingObstacle extends Thing {
+
+}
+
+class ThingEnemy extends Thing {
+
 }
 
 class CellElement {
@@ -144,8 +235,8 @@ class Player {
     constructor() {
         this.life = 60
         this.lifeMax = 60
-        this.energy = 3
-        this.energyMax = 3
+        this.energy = 4
+        this.energyMax = 4
         this.attack = 5
     }
 }
