@@ -51,6 +51,7 @@ class Level {
 class Board {
     cellPool = []
     tile = []
+    connectedRect = []
 
     constructor() {
         this.cellPool = [['Crystal', 'Earth'], ['Crystal', 'Water'], ['Crystal', 'Dark']]
@@ -68,6 +69,14 @@ class Board {
                 }
             }
             this.tile.push(temp)
+        }
+    }
+
+    findConnectedRect(row, col) {
+        if (this.tile.type != 'Crystal') {
+            return []
+        } else {
+            
         }
     }
 }
