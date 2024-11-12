@@ -23,7 +23,7 @@ function mouseUpCharacterSelect(x, y, button) {
                 if (pointInsideRectArray(x, y, UI.characterSelect.buttonStart)) {
                     scene = 'Map'
                     state = ''
-                    gameReady()
+                    adventureStart()
                 }
             }
         }

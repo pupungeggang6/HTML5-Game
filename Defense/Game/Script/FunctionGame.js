@@ -4,14 +4,16 @@ function gameInit() {
     level = new Level(data.level[1])
 }
 
-function gameReady() {
+function adventureStart() {
     player = new Player({'Deck': [1, 1, 1, 1, 1, 1]})
     field = new Field()
     level = new Level(data.level[1])
 }
 
 function gameStart() {
-    
+    player.drawCard()
+    player.drawCard()
+    player.drawCard()
 }
 
 function gameTick() {

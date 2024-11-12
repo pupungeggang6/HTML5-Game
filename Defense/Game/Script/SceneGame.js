@@ -46,15 +46,16 @@ function mouseUpGame(x, y, button) {
                 } else if (stateClick === 'Field') {
                     for (let i = 0; i < field.cell.length; i++) {
                         for (let j = 0; j < field.cell[i].length; j++) {
-                            let rect = [field.start.x + UI.field.cellSize[0] * j - 40, field.start.y + UI.field.cellSize[1] * i - 40, UI.field.cellSize[0], UI.field.cellSize[1]]
+                            let rect = [field.start.x + UI.game.field.cellSize[0] * j - 40, field.start.y + UI.game.field.cellSize[1] * i - 40, UI.game.field.cellSize[0], UI.game.field.cellSize[1]]
 
                             if (pointInsideRectArray(x, y, rect)) {
-                                player.playCard(field)
+                                player.playCard(player.selectedCard, field, i, j)
                             }
-
-                            stateClick = ''
                         }
                     }
+
+                    player.selectedCard = -1
+                    stateClick = ''
                 }
                 
             } else if (state === 'GameOver') {

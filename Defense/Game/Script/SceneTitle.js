@@ -17,7 +17,6 @@ function mouseUpTitle(x, y, button) {
                 if (pointInsideRectArray(x, y, UI.title.buttonStart)) {
                     scene = 'CharacterSelect'
                     state = ''
-                    gameReady()
                     debug()
                 }
             }

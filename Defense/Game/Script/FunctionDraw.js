@@ -64,7 +64,7 @@ function drawGameField() {
     }
 
     for (let p of field.unitPlayer) {
-        drawAtCenterRect(p.position, {x: 80, y: 80}, img)
+        drawAtCenterSprite(p.position, {x: 80, y: 80}, img.card[p.ID])
     }
 
     for (let i = 0; i < field.cell.length; i++) {

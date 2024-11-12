@@ -69,8 +69,18 @@ class Player {
         }
     }
 
-    playCard(field) {
-
+    playCard(index, field, i, j) {
+        let card = this.hand[index]
+        if (player.energy > card.energy) {
+            if (card.type === 'Unit') {
+                if (field.cell[i][j] === 0) {
+                    field.cell[i][j] = 1
+                    field.summonPlayerUnit(new UnitPlayer(card.ID, card.attack, card.weapon, card.life, card.effect), i, j)
+                    this.energy -= card.energy
+                    this.hand.splice(index, 1)
+                }
+            }
+        }
     }
 }
 
@@ -105,9 +115,9 @@ class Field {
     }
 
     summonPlayerUnit(unit, row, col) {
-        if (this.cell[row][col] === 0) {
-            this.cell[row][col] = 1
-        }
+        unit.position.x = this.start.x + col * 80
+        unit.position.y = this.start.y + row * 80
+        this.unitPlayer.push(unit)
     }
 
     summonEnemyUnit(unit) {
@@ -169,19 +179,27 @@ class Wave {
 
 class Unit {
     attack = 0
-    attackType = 0
+    weapon = 0
     life = 0
     lifeMax = 0
     effect = []
     position = new Vector(0, 0)
 
     constructor() {
-        
+
     }
 }
 
 class UnitPlayer extends Unit {
-
+    constructor(ID, attack, weapon, life, effect) {
+        super()
+        this.ID = ID
+        this.attack = attack
+        this.weapon = weapon
+        this.life = life
+        this.lifeMax = life
+        this.effect = effect
+    }
 }
 
 class UnitEnemy extends Unit {
