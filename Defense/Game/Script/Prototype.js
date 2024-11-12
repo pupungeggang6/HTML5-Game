@@ -16,6 +16,7 @@ class Player {
     deck = []
     drawRecharge = 4
     drawRechargeMax = 4
+    selectedCard = -1
 
     constructor(properties) {
         this.life = 999
@@ -66,6 +67,10 @@ class Player {
                 this.hand.push(this.deck.shift())
             }
         }
+    }
+
+    playCard(field) {
+
     }
 }
 
