@@ -4,8 +4,16 @@ function renderInit() {
     context.textBaseline = 'top'
     context.strokeStyle = 'Black'
     context.lineWidth = 2
-    context.fillStyle = 'Black'
+    context.fillStyle = 'White'
     context.clearRect(0, 0, 1280, 800)
     context.fillRect(0, 0, 1280, 800)
-    context.fillStyle = 'White'
+    context.fillStyle = 'Black'
+}
+
+function strokeRect(rect) {
+    context.strokeRect(rect[0], rect[1], rect[2], rect[3])
+}
+
+function fillRect(rect) {
+    context.fillRect(rect[0], rect[1], rect[2], rect[3])
 }

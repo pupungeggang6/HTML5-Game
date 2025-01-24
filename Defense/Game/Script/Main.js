@@ -6,7 +6,6 @@ function main() {
     canvas = document.getElementById('Screen')
     context = canvas.getContext('2d')
 
-    window.addEventListener('keydown', keyDown, false)
     canvas.addEventListener('mouseup', mouseUp, false)
 
     frameCurrent = Date.now()
@@ -34,7 +33,7 @@ function loop() {
 function mouseUp(event) {
     let targetRect = canvas.getBoundingClientRect()
     let x = (event.clientX - targetRect.left) / targetRect.width * canvas.width
-    let y = (event.clientY - targetRect.top) / targerRect.height * canvas.height
+    let y = (event.clientY - targetRect.top) / targetRect.height * canvas.height
     let button = event.button
 
     if (scene === 'Title') {
@@ -43,18 +42,6 @@ function mouseUp(event) {
         mouseUpCharacterSelect(x, y, button)
     } else if (scene === 'Battle') {
         mouseUpBattle(x, y, button)
-    }
-}
-
-function keyDown(event) {
-    let key = event.key
-
-    if (scene === 'Title') {
-        keyDownTitle(key)
-    } else if (scene === 'CharacterSelect') {
-        keyDownCharacterSelect(key)
-    } else if (scene === 'Battle') {
-        keyDownBattle(key)
     }
 }
 
