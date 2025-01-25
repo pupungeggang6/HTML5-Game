@@ -6,9 +6,10 @@ const UI = {
     },
 
     characterSelect: {
-        buttonBack: [1160, 20, 40, 40],
+        textTitle: [24, 24],
+        buttonBack: [1220, 20, 40, 40],
         buttonStart: [1080, 680, 160, 80],
-        textStart: [],
+        textStart: [1084, 704],
     },
 
     battle: {
