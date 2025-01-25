@@ -10,12 +10,12 @@ function renderTitle() {
 }
 
 function mouseUpTitle(x, y, button) {
-    let clickVec = {x: x, y: y}
+    let pos = {x: x, y: y}
 
     if (button === 0) {
         if (menu === false) {
             if (state === '') {
-                if (pointInsideRectUI(clickVec, UI.title.buttonStart)) {
+                if (pointInsideRectUI(pos, UI.title.buttonStart)) {
                     scene = 'CharacterSelect'
                     state = ''
                 }
