@@ -1,0 +1,5 @@
+var img = {
+}
+
+function loadImage() {
+}
