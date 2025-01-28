@@ -4,6 +4,8 @@ function loopTitle() {
 
 function renderTitle() {
     renderInit()
+
+
 }
 
 function mouseUpTitle(x, y, button) {
